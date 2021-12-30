@@ -134,7 +134,7 @@ public:
             }
             else
             {
-                recoder.emplace(s[i]);
+                recoder.insert(s[i]);
             }
         }
         if (s.length() % 2 == 0)
@@ -293,6 +293,5 @@ int main()
 {
     string s1, s2;
     Solution demo;
-
     return 0;
 }
