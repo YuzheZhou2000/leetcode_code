@@ -16,9 +16,9 @@ public:
     {
         // 使用vector数据结构记录邻接表
         vector<vector<int>> outdegree;
-        for (auto &g : graph)
+        for (int i = 0; i < graph.size(); i++)
         {
-            outdegree[g[0]].push_back(g[1]);
+            outdegree[graph[i][0]].push_back(graph[i][1]);
         }
         // 记录每个节点是否被遍历的时候访问到
         vector<bool> flagOfnode(n, false);
@@ -54,6 +54,52 @@ public:
         return false;
     }
 };
+
+// 面试题 04.02. 最小高度树
+struct TreeNode
+{
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+class Solution2
+{
+public:
+    TreeNode *sortedArrayToBST(vector<int> &nums)
+    {
+        // 参数给到的是一个有序整数数组，元素各不相同且按升序排列，利用分治的思想构造高度最小的二叉搜索树
+        int begin = 0;
+        int end = nums.size() - 1;
+        // 通过构造自定义函数进行递归
+        return makeBST(begin, end, nums);
+    }
+    /**
+     * @brief 递归构造二叉搜索树
+     * 
+     * @param begin 开始的数组位置
+     * @param end  结束的数组位置
+     * @param nums 给定的排序数组
+     * @return ** TreeNode* 返回当前子树的根节点
+     */
+
+    TreeNode *makeBST(int begin, int end, vector<int> &nums)
+    {
+
+        if (begin > end)
+        {
+            return NULL;
+        }
+
+        int mid = (end + begin) / 2;
+        TreeNode *root = new TreeNode(nums[mid]);
+        root->left = makeBST(begin, mid - 1, nums);
+        root->right = makeBST(mid + 1, end, nums);
+
+        return root;
+    }
+};
+
 int main()
 {
     return 0;
