@@ -16,9 +16,9 @@ public:
     {
         // 使用vector数据结构记录邻接表
         vector<vector<int>> outdegree;
-        for (auto &g : graph)
+        for (int i = 0; i < graph.size(); i++)
         {
-            outdegree[g[0]].push_back(g[1]);
+            outdegree[graph[i][0]].push_back(graph[i][1]);
         }
         // 记录每个节点是否被遍历的时候访问到
         vector<bool> flagOfnode(n, false);
@@ -54,6 +54,118 @@ public:
         return false;
     }
 };
+
+// 面试题 04.02. 最小高度树
+struct TreeNode
+{
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+class Solution
+{
+public:
+    TreeNode *sortedArrayToBST(vector<int> &nums)
+    {
+        // 参数给到的是一个有序整数数组，元素各不相同且按升序排列，利用分治的思想构造高度最小的二叉搜索树
+        int begin = 0;
+        int end = nums.size() - 1;
+        // 通过构造自定义函数进行递归
+        return makeBST(begin, end, nums);
+    }
+    /**
+     * @brief 递归构造二叉搜索树
+     * 
+     * @param begin 开始的数组位置
+     * @param end  结束的数组位置
+     * @param nums 给定的排序数组
+     * @return ** TreeNode* 返回当前子树的根节点
+     */
+
+    TreeNode *makeBST(int begin, int end, vector<int> &nums)
+    {
+
+        if (begin > end)
+        {
+            return NULL;
+        }
+
+        int mid = (end + begin) / 2;
+        TreeNode *root = new TreeNode(nums[mid]);
+        root->left = makeBST(begin, mid - 1, nums);
+        root->right = makeBST(mid + 1, end, nums);
+
+        return root;
+    }
+};
+
+// 面试题 04.03. 特定深度节点链表
+
+struct ListNode
+{
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+class Solution
+{
+public:
+    vector<ListNode *> listOfDepth(TreeNode *tree)
+    {
+        // 广度优先遍历  每一层构造一个链表
+        vector<ListNode *> res;
+        if (!tree)
+        {
+            return res;
+        }
+
+        // 广度优先遍历 使用队列保存每一层的节点
+        queue<TreeNode *> que;
+        TreeNode *tem;
+        int size;
+        // 将根节点压入队列
+        que.push(tree);
+
+        ListNode *head;
+        ListNode *pre;
+
+        // 队列不为空
+        while (!que.empty())
+        {
+            head = NULL;
+            size = que.size();
+            // 遍历当前队列
+            for (int i = 0; i < size; i++)
+            {
+                tem = que.front();
+                que.pop();
+                ListNode *nodeTem = new ListNode(tem->val);
+                if (!head)
+                {
+                    head = nodeTem;
+                    pre = head;
+                }
+                else
+                {
+                    pre->next = nodeTem;
+                    pre = pre->next;
+                }
+                if (tem->left)
+                {
+                    que.push(tem->left);
+                }
+                if (tem->right)
+                {
+                    que.push(tem->right);
+                }
+            }
+            res.push_back(head);
+        }
+        return res;
+    }
+};
+
 int main()
 {
     return 0;
