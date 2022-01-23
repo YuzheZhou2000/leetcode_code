@@ -63,7 +63,7 @@ struct TreeNode
     TreeNode *right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
-class Solution2
+class Solution
 {
 public:
     TreeNode *sortedArrayToBST(vector<int> &nums)
@@ -97,6 +97,72 @@ public:
         root->right = makeBST(mid + 1, end, nums);
 
         return root;
+    }
+};
+
+// 面试题 04.03. 特定深度节点链表
+
+struct ListNode
+{
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+class Solution
+{
+public:
+    vector<ListNode *> listOfDepth(TreeNode *tree)
+    {
+        // 广度优先遍历  每一层构造一个链表
+        vector<ListNode *> res;
+        if (!tree)
+        {
+            return res;
+        }
+
+        // 广度优先遍历 使用队列保存每一层的节点
+        queue<TreeNode *> que;
+        TreeNode *tem;
+        int size;
+        // 将根节点压入队列
+        que.push(tree);
+
+        ListNode *head;
+        ListNode *pre;
+
+        // 队列不为空
+        while (!que.empty())
+        {
+            head = NULL;
+            size = que.size();
+            // 遍历当前队列
+            for (int i = 0; i < size; i++)
+            {
+                tem = que.front();
+                que.pop();
+                ListNode *nodeTem = new ListNode(tem->val);
+                if (!head)
+                {
+                    head = nodeTem;
+                    pre = head;
+                }
+                else
+                {
+                    pre->next = nodeTem;
+                    pre = pre->next;
+                }
+                if (tem->left)
+                {
+                    que.push(tem->left);
+                }
+                if (tem->right)
+                {
+                    que.push(tem->right);
+                }
+            }
+            res.push_back(head);
+        }
+        return res;
     }
 };
 
