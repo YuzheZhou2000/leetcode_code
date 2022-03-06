@@ -166,6 +166,143 @@ public:
     }
 };
 
+// 面试题 04.04. 检查平衡性
+
+struct TreeNode
+{
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+class Solution
+{
+public:
+    bool isBalanced(TreeNode *root)
+    {
+        /*
+            本题主要考查平衡二叉树的定义及判断
+            平衡树的定义如下：任意一个节点，其两棵子树的高度差不超过 1。        
+        */
+
+        // 使用递归的方法进行判断
+        if (root == NULL)
+        {
+            // 如果树为空，返回true
+            return true;
+        }
+        // 递归遍历树 判断每一颗子树是不是平衡二叉树
+        return (abs(getDepth(root->right) - getDepth(root->left)) <= 1 && isBalanced(root->right) && isBalanced(root->left));
+    }
+    /**
+     * @brief Get the Depth object of sub tree
+     * 
+     * @param root  树的根节点
+     * @return ** int  子树的深度
+     */
+    int getDepth(TreeNode *root)
+    {
+        if (root == NULL)
+        {
+            return 1;
+        }
+        int res;
+        int left = getDepth(root->left);
+        int right = getDepth(root->right);
+        if (left > right)
+        {
+            return left + 1;
+        }
+        else
+        {
+            return right + 1;
+        }
+    }
+};
+
+// 面试题 04.05. 合法二叉搜索树
+
+struct TreeNode
+{
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+class Solution
+{
+public:
+    bool isValidBST(TreeNode *root)
+    {
+        // 如果是一个二叉搜索树，那么这棵树的中序遍历一定为一个递增的数组
+        vector<int> vec;
+        // 获取中序遍历数组
+        lastVisit(root, vec);
+        // 判断数组是否为递增数组,若是 则是一个二叉搜索树，若不是 返回false
+        for (int size = vec.size() - 1; size > 0; size--)
+        {
+            if (vec[size] <= vec[size - 1])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    // 递归法中序遍历二叉树
+    void lastVisit(TreeNode *root, vector<int> &vec)
+    {
+        if (root == NULL)
+        {
+            return;
+        }
+        lastVisit(root->left, vec);
+        vec.push_back(root->val);
+        lastVisit(root->right, vec);
+    }
+};
+
+// 面试题 04.06. 后继者
+
+struct TreeNode
+{
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+class Solution
+{
+public:
+    // 给定搜索二叉树，和其中的一个节点 判断本节点的下一个节点（按照中序遍历）
+    TreeNode *inorderSuccessor(TreeNode *root, TreeNode *p)
+    {
+        vector<TreeNode *> vec;
+        lastVisit(root, vec);
+        for (int i = 0; i < vec.size()-1; i++)
+        {
+            if (vec[i] == p)
+            {
+                return vec[i + 1];
+            }
+        }
+        return NULL;
+    }
+    void lastVisit(TreeNode *root, vector<TreeNode *> &vec)
+    {
+        // 二叉树的中序遍历
+        if (root == NULL)
+        {
+            return;
+        }
+        lastVisit(root->left, vec);
+        vec.push_back(root);
+        lastVisit(root->right, vec);
+    }
+};
+
+//
 int main()
 {
     return 0;
