@@ -1,3 +1,5 @@
+// utf- 8
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -76,7 +78,7 @@ public:
     }
     /**
      * @brief 递归构造二叉搜索树
-     * 
+     *
      * @param begin 开始的数组位置
      * @param end  结束的数组位置
      * @param nums 给定的排序数组
@@ -182,7 +184,7 @@ public:
     {
         /*
             本题主要考查平衡二叉树的定义及判断
-            平衡树的定义如下：任意一个节点，其两棵子树的高度差不超过 1。        
+            平衡树的定义如下：任意一个节点，其两棵子树的高度差不超过 1。
         */
 
         // 使用递归的方法进行判断
@@ -196,7 +198,7 @@ public:
     }
     /**
      * @brief Get the Depth object of sub tree
-     * 
+     *
      * @param root  树的根节点
      * @return ** int  子树的深度
      */
@@ -280,7 +282,7 @@ public:
     {
         vector<TreeNode *> vec;
         lastVisit(root, vec);
-        for (int i = 0; i < vec.size()-1; i++)
+        for (int i = 0; i < vec.size() - 1; i++)
         {
             if (vec[i] == p)
             {
@@ -302,7 +304,128 @@ public:
     }
 };
 
-//
+// 面试题 04.08. 首个共同祖先
+struct TreeNode
+{
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+class Solution
+{
+public:
+    TreeNode *res; // 存储输出的结果
+    bool dfs(TreeNode *root, TreeNode *p, TreeNode *q)
+    {
+        if (root == NULL)
+        {
+            // 到达了叶子节点
+            return false;
+        }
+        bool left = dfs(root->left, p, q);
+        bool right = dfs(root->right, p, q);
+        if ((left && right) || ((root->val == p->val || root->val == q->val) && (left || right)))
+        {
+            // 满足条件  记录结果
+            res = root;
+        }
+        // 从下向上传递
+        return left || right || (root->val == p->val || root->val == q->val);
+    }
+    TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
+    {
+        // 使用深度优先遍历寻找两个节点最近的共同祖先
+        dfs(root, p, q);
+        return res;
+    }
+};
+
+// 面试题 04.10. 检查子树
+struct TreeNode
+{
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+class Solution
+{
+public:
+    bool aEqlbTree(TreeNode *t1, TreeNode *t2)
+    {
+        if (t1 == t2)
+        {
+            // 两棵树相通 返回正确
+            return true;
+        }
+        if (t1 == NULL || t2 == NULL)
+        {
+            // 当前是一个空树
+            return false;
+        }
+        // 如果当前节点一样，直接向下遍历其他节点
+        return t1->val == t2->val && aEqlbTree(t1->left, t2->left) && aEqlbTree(t1->right, t2->right);
+    }
+    bool checkSubTree(TreeNode *t1, TreeNode *t2)
+    {
+        // 使用递归法判断t1中是不是包含子树t2
+        if (t2 == NULL)
+        {
+            // 待查找子树是一个空树 直接返回true
+            return true;
+        }
+        if (t1 == NULL)
+        {
+            return false;
+        }
+        // 递归判断 两个树一样 或者向下判断子树与目标的特点
+        return aEqlbTree(t1, t2) || checkSubTree(t1->left, t2) || checkSubTree(t1->right, t2);
+    }
+};
+
+// 面试题 04.12. 求和路径
+struct TreeNode
+{
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+class Solution
+{
+public:
+    static int res = 0;
+    int pathSum(TreeNode *root, int sum)
+    {
+        // 寻找某个路径
+        findPath(root, root,sum, 0);
+    }
+    void findPath(TreeNode* root,TreeNode* cur, int sum,int temp){
+        if(cur == NULL){
+            return;
+        }
+        temp = temp + cur->val;
+        if(temp>sum){
+            // 已经过大 直接放弃
+            findPath(root->left, root->left, sum, 0);
+            findPath(root->right, root->right, sum, 0);
+
+            return;
+        }
+        if(temp== sum){
+            res++;
+            return;
+        }
+        // 分别向两个子节点向下寻找
+        findPath(root,cur->left, sum, temp);
+        findPath(root,cur->right, sum, temp);
+    }
+};
+
 int main()
 {
     return 0;
