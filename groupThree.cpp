@@ -212,7 +212,7 @@ class StackOfPlates
 public:
     int cap;                     // 一摞盘子的最大个数
     int nowIndex;                // 现在的栈
-    vector<stack<int> > vecStack; // 使用栈数组
+    vector<stack<int>> vecStack; // 使用栈数组
 
     StackOfPlates(int cap)
     {
@@ -389,12 +389,14 @@ public:
 class AnimalShelf
 {
 private:
-    queue<vector<int> > dog;
-    queue<vector<int> > cat;
+    queue<vector<int>> dog;
+    queue<vector<int>> cat;
+    vector<int> res;
 
 public:
     AnimalShelf()
     {
+        res = {-1,-1};
     }
 
     void enqueue(vector<int> animal)
@@ -408,30 +410,38 @@ public:
             dog.push(animal);
         }
     }
-
     vector<int> dequeueAny()
     {
         if (dog.empty() && cat.empty())
         {
-            return [ -1, -1 ];
+            return res;
         }
         else if (dog.empty() && !cat.empty())
         {
-            return cat.front();
+            vector<int> r = cat.front();
+            cat.pop();
+            return r;
         }
         else if (!dog.empty() && cat.empty())
         {
-            return dog.front();
+
+            vector<int> r = dog.front();
+            dog.pop();
+            return r;
         }
         else
         {
             if (cat.front()[0] < dog.front()[0])
             {
-                return cat.front();
+                vector<int> r = cat.front();
+                cat.pop();
+                return r;
             }
             else
             {
-                dog.front();
+                vector<int> r = dog.front();
+                dog.pop();
+                return r;
             }
         }
     }
@@ -440,11 +450,13 @@ public:
     {
         if (!dog.empty())
         {
-            return dog.front();
+            vector<int> r = dog.front();
+            dog.pop();
+            return r;
         }
         else
         {
-            return [ -1, -1 ];
+            return res;
         }
     }
 
@@ -452,11 +464,13 @@ public:
     {
         if (!cat.empty())
         {
-            return cat.front();
+            vector<int> r = cat.front();
+            cat.pop();
+            return r;
         }
         else
         {
-            return [ -1, -1 ];
+            return res;
         }
     }
 };
@@ -468,3 +482,4 @@ int main()
 
     return 0;
 }
+ 
