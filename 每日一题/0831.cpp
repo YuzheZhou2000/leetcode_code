@@ -77,6 +77,10 @@ int main()
     int a[5] = {1, 2, 3, 4, 5};
     vector<int> push(a, a + 5);
     int b[5] = {4, 5, 3, 2, 1};
+    /*
+    vector 初始化的几种方法
+    
+    */
     vector<int> pop(b, b + 5);
     bool res =  demo.validateStackSequences(push, pop);
     cout << res;
