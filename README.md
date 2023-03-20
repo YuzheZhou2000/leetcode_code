@@ -1,6 +1,6 @@
 # leetcode_code
 
-## about author : hitsz cs-cv研究牲一枚
+## about author : hitszer cs-cv
 
 - 我的CSDN博客：https://blog.csdn.net/qq_43528044
 
