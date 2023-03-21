@@ -29,6 +29,7 @@ public:
                 ListNode *tem = new ListNode(tem_val);
                 cur->next = tem;
                 cur = cur->next;
+                l2 = l2->next;
             }
             else if (l2 == NULL)
             {
@@ -38,11 +39,12 @@ public:
                 ListNode *tem = new ListNode(tem_val);
                 cur->next = tem;
                 cur = cur->next;
+                l1 = l1->next;
             }
             else
             {
-                tem_val = (l1->val + l2->val + jinwei) % 10;    // 当前的个位数字
-                jinwei = (l1->val + l2->val + jinwei) / 10; //  当前十位数字
+                tem_val = (l1->val + l2->val + jinwei) % 10; // 当前的个位数字
+                jinwei = (l1->val + l2->val + jinwei) / 10;  //  当前十位数字
                 ListNode *tem = new ListNode(tem_val);
                 cur->next = tem;
                 cur = cur->next;
@@ -50,14 +52,14 @@ public:
                 l2 = l2->next;
             }
         }
-        if (jinwei != 0){
+        if (jinwei != 0)
+        {
             ListNode *tem = new ListNode(jinwei);
             cur->next = tem;
         }
         return head->next;
     }
 };
-
 int main()
 {
     ListNode *head = new ListNode(10);
