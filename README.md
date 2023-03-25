@@ -23,4 +23,6 @@
 
 - [0325](https://leetcode.cn/problems/daily-temperatures/?favorite=2cktkvj): *739. 每日温度* 本题目是一个**单调**问题，可以首先开辟一个长度和输入数组一样的数组，存储比当前节点更大的第一个元素，从右往左遍历扫描,可以通过跳转降低时间复杂度
 
-- [0326](https://leetcode.cn/problems/palindromic-substrings/?favorite=2cktkvj) 
+- [0325](https://leetcode.cn/problems/palindromic-substrings/?favorite=2cktkvj): *647. 回文子串* 回文串问题和[无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/?favorite=2cktkvj)问题相似，使用**动态规划**的思路解决问题，首先定义动态方程，每一个单独的字符都是一个回文串，然后循环。有两个字符构成的子串，仅需要保证两个数字一样即可。大于三个字符的使用动态规划的转移方程即可。需要注意的是循环遍历的写法，外层循环子串长度L，内层循环起始位置i，即可
+
+-[0326](https://leetcode.cn/problems/task-scheduler/?favorite=2cktkvj): *621. 任务调度器*
