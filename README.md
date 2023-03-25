@@ -21,4 +21,6 @@
 
 - [0324](https://leetcode.cn/problems/longest-palindromic-substring/): 5. 最长回文子串 给定字符串，求最长的回文子串，使用**动态规划**的方法进行求解，dp[i][j]二维数字记录从i到j的子串是否为回文序列，这里需要注意的是循环的写法，外层循环循环记录等待判断的子串长度L，内层循环记录子串的开始索引即可。
 
-- [0325](https://leetcode.cn/problems/regular-expression-matching/?favorite=2cktkvj) 10. 正则表达式的匹配
+- [0325](https://leetcode.cn/problems/daily-temperatures/?favorite=2cktkvj): 739. 每日温度 本题目是一个**单调**问题，可以首先开辟一个长度和输入数组一样的数组，存储比当前节点更大的第一个元素，从右往左遍历扫描,可以通过跳转降低时间复杂度
+
+- [0326](https://leetcode.cn/problems/palindromic-substrings/?favorite=2cktkvj) 
