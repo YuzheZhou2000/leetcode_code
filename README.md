@@ -1,6 +1,6 @@
 # leetcode_code
 
-## about author : hitszer cs-cv
+## About Author : Hitszer cs-cv
 
 - [我的CSDN博客](https://blog.csdn.net/qq_43528044)
 
@@ -9,7 +9,7 @@
 - 尽量会保持更新记录，一起加油
 
 
-## about work:
+## About Work:
 
 - [0320](https://leetcode.cn/problems/two-sum/?favorite=2cktkvj): *1. 两数之和* 在数组查询过程中为了降低时间复杂度，可以通过引入 **map** 的方式，学习标准库下map的基本操作 方法： 空间换时间  map查找
 
