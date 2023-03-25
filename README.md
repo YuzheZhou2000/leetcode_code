@@ -17,4 +17,6 @@
 
 - 0322：3 无重复字符的最长子串 首先需要区别的是最长子串还是最共子序列，子串需要保证连续性。本题中可以使用双指针进行窗口的滑动，在查找过程中使用set数据结构存储 方法：双指针 滑动窗口
 
-- [0323](https://leetcode.cn/problems/median-of-two-sorted-arrays/?favorite=2cktkvj)
+- [0323](https://leetcode.cn/problems/median-of-two-sorted-arrays/?favorite=2cktkvj)：4 时间复杂度有要求，涉及到log，因此使用二分查找   _**难题 **_
+
+- [0324](https://leetcode.cn/problems/longest-palindromic-substring/) 
