@@ -25,4 +25,4 @@
 
 - [0325](https://leetcode.cn/problems/palindromic-substrings/?favorite=2cktkvj): *647. 回文子串* 回文串问题和[无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/?favorite=2cktkvj)问题相似，使用**动态规划**的思路解决问题，首先定义动态方程，每一个单独的字符都是一个回文串，然后循环。有两个字符构成的子串，仅需要保证两个数字一样即可。大于三个字符的使用动态规划的转移方程即可。需要注意的是循环遍历的写法，外层循环子串长度L，内层循环起始位置i，即可
 
--[0326](https://leetcode.cn/problems/merge-two-binary-trees/?favorite=2cktkvj): *617. 合并二叉树*  使用**递归**的方法，直接创建一棵新的二叉树即可。
+- [0326](https://leetcode.cn/problems/merge-two-binary-trees/?favorite=2cktkvj): *617. 合并二叉树*  使用**递归**的方法，直接创建一棵新的二叉树即可。
