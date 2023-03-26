@@ -38,8 +38,7 @@ int main(){
     queue<int> w;
     w.push(1);
     w.push(2);
-    w.push(3);
-    w.pop();
+    w.push(3);    w.pop();
     int a  = w.front();
     cout<<a<<endl;
     return 0;
