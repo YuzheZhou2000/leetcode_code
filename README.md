@@ -11,6 +11,8 @@
 
 ## About Work:
 
+### [LeetCode 热题 HOT 100](https://leetcode.cn/problem-list/2cktkvj/)
+
 - [1. 两数之和](https://leetcode.cn/problems/two-sum/?favorite=2cktkvj): *0320* 在数组查询过程中为了降低时间复杂度，可以通过引入 **map** 的方式，学习标准库下map的基本操作 方法： 空间换时间  map查找
 
 - [2. 两数相加](https://leetcode.cn/problems/add-two-numbers/?favorite=2cktkvj): *0321* 其中 **链表** 中每个节点存储了一位数字，在本题中要注意的是加法运算可能存在进位，在每次求和过程中需要考虑进位，另外作为加数的两个链表长度可能不一致。最后使用new新建节点即可 方法： 模拟
