@@ -30,3 +30,5 @@
 - [617. 合并二叉树](https://leetcode.cn/problems/merge-two-binary-trees/?favorite=2cktkvj): *0326*  使用**递归**的方法，直接创建一棵新的二叉树即可。
 
 - [538. 把二叉搜索树转换为累加树](https://leetcode.cn/problems/convert-bst-to-greater-tree/?favorite=2cktkvj) *0327*  本题首先需要理解累加树的属性，累加树每一个节点的值在二叉搜索树中，可以直接表示为通过**右-中-左**进行递归遍历即可。
+
+- [494. 目标和](https://leetcode.cn/problems/target-sum/?favorite=2cktkvj) *0328*  本体可以使用 **回溯** 的方法解决，通过递归判断每一种情况，当运行到最后一个元素并添加了符号以后，通过判断所求的和与目标值是否一致来确定最终是不是res++ 
