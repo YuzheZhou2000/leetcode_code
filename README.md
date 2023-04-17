@@ -35,4 +35,7 @@
 
 - [438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/?favorite=2cktkvj) *0416*  本题应采用 **滑动窗口** 的方法来解决问题，由于是异位词，所以不考虑顺序，如果使用hash map 顺序和操作不方面，这里用到的技巧是，由于题目给出所有的字符都是小写字母，所以可以根据acsll码值，更改为数组表示，数组长度为26（字母的个数）。每滑动一次，前面的-1，后面的+1，判断是否一致，即可。本题目的两个**收获**是: vector的插入需要的函数时emplace_back, 不可以直接emplace，需要牢记。另一个时只涉及到字母是，可以使用线性表数组，这样的查找效率更高更快。 
 
-- [437. 路径总和 III](https://leetcode.cn/problems/path-sum-iii/?favorite=2cktkvj) *0416*  本题目使用**二叉树**的递归遍历，由于路径的奇起点是二叉树上的任意节点，因此遍历每一个节点作为起点，方向是从父节点到子节点，因此遍历即可，需要注意的是中间记录和的参数如果使用int类型可能**溢出**，因此需要改用long long 类型。
+- [437. 路径总和 III](https://leetcode.cn/problems/path-sum-iii/?favorite=2cktkvj) *0417*  本题目使用**二叉树**的递归遍历，由于路径的奇起点是二叉树上的任意节点，因此遍历每一个节点作为起点，方向是从父节点到子节点，因此遍历即可，需要注意的是中间记录和的参数如果使用int类型可能**溢出**，因此需要改用long long 类型。
+
+- [416. 分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/?favorite=2cktkvj) *0417*  
+
