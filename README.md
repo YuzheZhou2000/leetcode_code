@@ -17,7 +17,7 @@
 
 - [2. 两数相加](https://leetcode.cn/problems/add-two-numbers/?favorite=2cktkvj): *0321* 其中 **链表** 中每个节点存储了一位数字，在本题中要注意的是加法运算可能存在进位，在每次求和过程中需要考虑进位，另外作为加数的两个链表长度可能不一致。最后使用new新建节点即可 方法： 模拟
  
-- [3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/?favorite=2cktkvj): *0322* 首先需要区别的是最长子串还是最共子序列，子串需要保证连续性。本题中可以使用双指针进行窗口的滑动，在查找过程中使用set数据结构存储 方法：双指针 滑动窗口
+- [3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/?favorite=2cktkvj): *0322* 首先需要区别的是最长子串还是最共子序列，子串需要保证连续性。本题中可以使用**双指针**进行窗口的滑动，在查找过程中使用set数据结构存储 方法：双指针 滑动窗口
 
 - [4. 寻找两个正序数组的中位数](https://leetcode.cn/problems/median-of-two-sorted-arrays/?favorite=2cktkvj): *0323* 涉及到log，因此使用二分查找 **难题**
 
@@ -37,5 +37,5 @@
 
 - [437. 路径总和 III](https://leetcode.cn/problems/path-sum-iii/?favorite=2cktkvj) *0417*  本题目使用**二叉树**的递归遍历，由于路径的奇起点是二叉树上的任意节点，因此遍历每一个节点作为起点，方向是从父节点到子节点，因此遍历即可，需要注意的是中间记录和的参数如果使用int类型可能**溢出**，因此需要改用long long 类型。
 
-- [416. 分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/?favorite=2cktkvj) *0418*   本题使用首先将题目抽象为**0-1背包问题**的变体，进而是用动态规划的方式求解，注意动态规划dp方程的定义和转移方程的描述即可。具体代码见[cpp文件](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/416.cpp)，本题中可以重新复习**二维数组 的创建**  `vector<vector<bool>> dp(len, vector<bool>(targetSum + 1, false));`
+- [416. 分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/?favorite=2cktkvj) *0418*   本题使用首先将题目抽象为**0-1背包问题**的变体，进而是用**动态规划**的方式求解，注意动态规划dp方程的定义和转移方程的描述即可。具体代码见[cpp文件](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/416.cpp)，本题中可以重新复习**二维数组 的创建**  `vector<vector<bool>> dp(len, vector<bool>(targetSum + 1, false));`
 
