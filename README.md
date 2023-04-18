@@ -37,5 +37,5 @@
 
 - [437. 路径总和 III](https://leetcode.cn/problems/path-sum-iii/?favorite=2cktkvj) *0417*  本题目使用**二叉树**的递归遍历，由于路径的奇起点是二叉树上的任意节点，因此遍历每一个节点作为起点，方向是从父节点到子节点，因此遍历即可，需要注意的是中间记录和的参数如果使用int类型可能**溢出**，因此需要改用long long 类型。
 
-- [416. 分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/?favorite=2cktkvj) *0418*   本题使用首先将题目抽象为**0-1背包问题**的变体，进而是用动态规划的方式求解，注意动态规划dp方程的定义和转移方程的描述即可。具体代码见[cpp文件](https://github.com/YuzheZhou2000/leetcode_code/blob/main/416.cpp)，本题中可以重新复习**二维数组 的创建**  `vector<vector<bool>> dp(len, vector<bool>(targetSum + 1, false));`
+- [416. 分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum/?favorite=2cktkvj) *0418*   本题使用首先将题目抽象为**0-1背包问题**的变体，进而是用动态规划的方式求解，注意动态规划dp方程的定义和转移方程的描述即可。具体代码见[cpp文件](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/416.cpp)，本题中可以重新复习**二维数组 的创建**  `vector<vector<bool>> dp(len, vector<bool>(targetSum + 1, false));`
 
