@@ -9,4 +9,6 @@
 - 尽量会保持更新记录，一起加油
 
 
-# [LeetCode 热题 HOT 100](https://leetcode.cn/problem-list/2cktkvj/)
+# [LeetCode 热题 HOT 100](https://github.com/YuzheZhou2000/leetcode_code/tree/zyz_code/hot-100)
+
+# [LeetCode 剑指offer](https://github.com/YuzheZhou2000/leetcode_code/tree/zyz_code/hot-100)
