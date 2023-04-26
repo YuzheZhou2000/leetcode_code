@@ -9,9 +9,8 @@ public:
         int len = nums.size();
         sort(nums.begin(),nums.end());
 
-        // 利用数组Z记录
+        // 利用数组记录
         set<int> tem;
-
         
         for(int i = 0;i<len;i++){
             if(tem.find(nums[i]) != tem.end()){
@@ -19,11 +18,8 @@ public:
             }else{
                 tem.insert(nums[i]);
             }
-
         }
-
         return 0;
-
     }
 };
 
