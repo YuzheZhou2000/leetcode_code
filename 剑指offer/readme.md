@@ -13,7 +13,9 @@
 | [剑指 Offer 06. 从尾到头打印链表](https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/)   | 2023年4月27日       |链表 | 倒叙打印链表的值，这里使用的递归遍历反向打印 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-06.cpp)  |
 | [剑指 Offer 07. 重建二叉树](https://leetcode.cn/problems/zhong-jian-er-cha-shu-lcof/)   | 2023年4月28日       |二叉树 | 根据前序和中序遍历数组构建新的二叉树，注意边界范围 使用递归即可 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-07.cpp)  |
 | [剑指 Offer 09. 用两个栈实现队列](https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/)   | 2023年4月28日       | 栈、队列的模拟 | 两个栈结构实现一个队列，注意栈结构的性质是先进后出，队列的性质是先进先出即可 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-09.cpp)  |
-| [name]()   | data       |class | And point [AC代码]()  |
-| [name]()   | data       |class | And point [AC代码]()  |
-| [name]()   | data       |class | And point [AC代码]()  |
-| [name](https://leetcode.cn/problemset/all/?page=55)   | data       |class | And point [AC代码]()  |
+| [剑指 Offer 10- I. 斐波那契数列](https://leetcode.cn/problems/fei-bo-na-qi-shu-lie-lcof/description/)   | 2023年5月2日       |递归、动态规划 | 斐波那契数列是一个典型得到递归问题，但是在本题中，如果使用简单的递归计算，会发现如果n过大，会发生运行超时的现象，因此考虑使用空间换时间的方法，使用**动态规划**解决，另外需要注意题目中的求模运算。 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-10-1.cpp)  |
+| [剑指 Offer 10- II. 青蛙跳台阶问题](https://leetcode.cn/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/)   | 2023年5月2日       |动态规划 | 本题目思路和10-1完全一致，但是需要注意的是初始条件不一致，0层台阶可能的步数是 1 而不是 0  [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-10-2.cpp)  |
+| [剑指 Offer 11. 旋转数组的最小数字](https://leetcode.cn/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/)   | 2023年5月2日       |数组、二分查找、排序 | 本题最终目的是为了找到数组中的最小值，因此直接使用`sort`函数对数组进行排序返回最小值元素亦可以，但是时间会很多，面试也不能这么做，因此可以使用二分查找，通过判断中间元素和边界元素的大小进而确定最小的元素，具体代码见 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-11.cpp)  |
+| [剑指 Offer 12. 矩阵中的路径](https://leetcode.cn/problems/ju-zhen-zhong-de-lu-jing-lcof/description/)   | 2023年5月2日       |矩阵、回溯| 本题需要逐个检查每一个坐标点，对每一个进行回溯，目前还没有彻底理解，CY **TODO** [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-12.cpp)  |
+
+[leetcode题目导航](https://leetcode.cn/problemset/all/?page=56)
