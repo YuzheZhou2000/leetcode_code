@@ -17,7 +17,7 @@
 | [剑指 Offer 13. 机器人的运动范围](https://leetcode.cn/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/description/)   | 2023年5月3日       |矩阵、回溯、深度优先遍历| 本题可以看作是一个[剑指 Offer 12. 矩阵中的路径](https://leetcode.cn/problems/ju-zhen-zhong-de-lu-jing-lcof/description/)中的简化版，因为本题种已经规定了起点是从（0，0）开始的，这里我们使用深度优先遍历算法解决，注意深度优先遍历种递归函数的边界条件，以及添加visited数组记录矩阵中的每一个元素是否被访问 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-13.cpp)  |
 | [剑指 Offer 14- I. 剪绳子](https://leetcode.cn/problems/jian-sheng-zi-lcof/description/)   | 2023年5月4日       |动态规划| 也可以使用数学的方法解决 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-14-1.cpp)  |
 | [剑指 Offer 15. 二进制中1的个数](https://leetcode.cn/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/description/)   | 2023年6月4日       |位运算| 因为题目中已经给出**输入必须是长度为 32 的 二进制串**，因此使用按位操作，用二进制中的一个“1”进行逐个向左移位，然后和输入进行按位与运算后求和即可。 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-15.cpp)  |
+| [剑指 Offer 16. 数值的整数次方](https://leetcode.cn/problems/shu-zhi-de-zheng-shu-ci-fang-lcof/description/)   | 2023年6月11日       |数学、分治、递归| 本题的要求为不使用库函数对幂运算进行求解、直接一个一个相乘会造成时间超出限制、因此使用分治的方法 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-16.cpp)  |
 
 
-
-[leetcode题目导航](https://leetcode.cn/problemset/all/?page=56)
+[leetcode题目导航](https://leetcode.cn/problemset/all/?page=57)
