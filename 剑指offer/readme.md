@@ -20,5 +20,6 @@
 | [剑指 Offer 16. 数值的整数次方](https://leetcode.cn/problems/shu-zhi-de-zheng-shu-ci-fang-lcof/description/)   | 2023年6月11日       |数学、分治、递归| 本题的要求为不使用库函数对幂运算进行求解、直接一个一个相乘会造成时间超出限制、因此使用分治的方法 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-16.cpp)  |
 | [剑指 Offer 17. 打印从1到最大的n位数](https://leetcode.cn/problems/da-yin-cong-1dao-zui-da-de-nwei-shu-lcof/description/)   | 2023年6月12日       |循环| 本题的要求为返回的int类型的vector数组，因此不需要考虑数组越界问题，直接进行循环遍历打印即可。**本题的一个拓展为大数越界问题，此时需要使用字符串** [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-17.cpp)  |
 | [剑指 Offer 18. 删除链表的节点](https://leetcode.cn/problems/shan-chu-lian-biao-de-jie-dian-lcof/description/)   | 2023年6月13日       |链表、指针| 本题为经典的前后指针问题，题目中说明了指针指向的新的空间不需要释放内存，因此使用指针遍历即可 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-18.cpp)  |
+| [剑指 Offer 19. 正则表达式匹配](https://leetcode.cn/problems/zheng-ze-biao-da-shi-pi-pei-lcof/)   | 2023年6月13日       |链表、指针| 本题为经典的前后指针问题，题目中说明了指针指向的新的空间不需要释放内存，因此使用指针遍历即可 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-18.cpp)  |
 
 [leetcode题目导航](https://leetcode.cn/problemset/all/?page=57)
