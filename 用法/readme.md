@@ -6,7 +6,9 @@
 
 ## Vector
 
+- 一维数组的初始化`vector < int > v = {1,2,3,4,5};`
 - 二维数组的初始化 `vector<vector<bool>> visited(m, vector<bool>(n, false));`在这里创建了一个m*n的初始值全部为false的额二维数组
+
 
 
 ## Set
