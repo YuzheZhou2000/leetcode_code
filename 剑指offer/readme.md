@@ -24,6 +24,7 @@
 | [剑指 Offer 22. 链表中倒数第k个节点](https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/submissions/439779147/)   | 2023年6月13日       |链表、双指针| 本题为经典的双指针问题，要求为输入一个链表，输出该链表中倒数第k个节点。第一步想到的解决办法是直接进行第一遍遍历，获得链表的长度，第二遍通过计算位置获得目标结果，然而可以使用双指针进行优化，进而使用一次遍历即可实现任务需求，具体来说，快指针首先向前移动k步，然后两个指针同时向后移动，当快指针移动到结尾，慢指针的位置正好为目标节点。 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-22.cpp)  |
 | [剑指 Offer 24. 反转链表](https://leetcode.cn/problems/fan-zhuan-lian-biao-lcof/description/)   | 2023年6月14日       |链表 面试原题| 反转链表，注意next指针的使用 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-24.cpp)  |
 | [剑指 Offer 25. 合并两个排序的链表](https://leetcode.cn/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/solutions/1398788/he-bing-liang-ge-pai-xu-de-lian-biao-by-g3z6g/)   | 2023年6月14日       |链表 面试原题| 合并链表、可以直接新建一个新的链表，将两个待合并的链表进行整合即可。 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-25.cpp)  |
+| [剑指 Offer 27. 二叉树的镜像](https://leetcode.cn/problems/er-cha-shu-de-jing-xiang-lcof/description/)   | 2023年6月17日       |二叉树的反转 面试原题| 反转二叉树、可以使用递归直接进行，注意递归的条件即可。 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-27.cpp)  |
 
 
 
