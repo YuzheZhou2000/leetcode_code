@@ -25,7 +25,9 @@
 | [剑指 Offer 24. 反转链表](https://leetcode.cn/problems/fan-zhuan-lian-biao-lcof/description/)   | 2023年6月14日       |链表 面试原题| 反转链表，注意next指针的使用 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-24.cpp)  |
 | [剑指 Offer 25. 合并两个排序的链表](https://leetcode.cn/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/solutions/1398788/he-bing-liang-ge-pai-xu-de-lian-biao-by-g3z6g/)   | 2023年6月14日       |链表 面试原题| 合并链表、可以直接新建一个新的链表，将两个待合并的链表进行整合即可。 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-25.cpp)  |
 | [剑指 Offer 27. 二叉树的镜像](https://leetcode.cn/problems/er-cha-shu-de-jing-xiang-lcof/description/)   | 2023年6月17日       |二叉树的反转 面试原题| 反转二叉树、可以使用递归直接进行，注意递归的条件即可。 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-27.cpp)  |
+| [剑指 Offer 27. 二叉树的镜像](https://leetcode.cn/problems/er-cha-shu-de-jing-xiang-lcof/description/)   | 2023年6月17日       |二叉树的反转 面试原题| 反转二叉树、可以使用递归直接进行，注意递归的条件即可。 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-27.cpp)  |
+| [剑指 Offer 28. 对称的二叉树](https://leetcode.cn/problems/dui-cheng-de-er-cha-shu-lcof/description/)   | 2023年6月18日       |二叉树、递归| 反转二叉树、可以使用递归直接进行，注意递归的条件即可。本题承接[剑指 Offer 27. 二叉树的镜像](https://leetcode.cn/problems/er-cha-shu-de-jing-xiang-lcof/description/)要求判断是不是一个对称的二叉树，可以使用递归进行判断，集体递归的终止条件和递归方程可参见代码。 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-28.cpp)  |
+| [剑指 Offer 30. 包含min函数的栈](https://leetcode.cn/problems/bao-han-minhan-shu-de-zhan-lcof/description/)   | 2023年6月18日       |栈结构、递归|使用辅助栈结构记录最小元素，两个栈同时保存或者弹出数据 [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-30.cpp)  |
 
 
-
-[leetcode题目导航](https://leetcode.cn/problemset/all/?page=57)
+[leetcode题目导航](https://leetcode.cn/problemset/all/?page=58)
