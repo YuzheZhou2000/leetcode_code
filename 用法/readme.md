@@ -8,6 +8,7 @@
 
 - 一维数组的初始化`vector < int > v = {1,2,3,4,5};`
 - 二维数组的初始化 `vector<vector<bool>> visited(m, vector<bool>(n, false));`在这里创建了一个m*n的初始值全部为false的额二维数组
+- 数组的倒置： reverse函数用于反转在[first,last)范围内的顺序（包括first指向的元素，不包括last指向的元素），reverse函数没有返回值。 `reverse(vi.begin(),vi.end());` 
 
 
 
