@@ -15,7 +15,7 @@
 ## Set
 - 查找 `find` 和`end()`进行比较: `tem.find(nums[i]) != tem.end()`
 - 插入 使用`inset`操作
-
+- `unordered_set` 背后的底层实现是一个哈希（散列）方法 
 
 ---
 ---
