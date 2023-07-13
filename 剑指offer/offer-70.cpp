@@ -17,30 +17,20 @@ public:
             return nums[0];
         }
         int mid = 0;
-        while (left <= right)
+        while (left < right)
         {
             mid = left + (right - left) / 2;
-            if(nums[mid] == nums[mid +1]){
-                if(mid % 2 == 0){
-                    //位于待查找元素的左边
-                    left = mid;
-                }else{
-                    right = mid;
-                }
-                
-            }else if (nums[mid] == nums[mid -1]){
-                if((mid -1)%2 == 0){
-                    left = mid;
-                }else{
-                    right = mid;
-                }
-                
-            }else{
-                return mid;
+            if(nums[mid] == nums[mid ^ 1]){
+                // 如果mid 是一个偶数 那么mid^1 = mid + 1 如果这两个相等 则mid在目标的左侧
+                // 如果mid 是一个奇数 那么mid^1 = mid - 1 如果这两个相等 则mid在目标的左侧
+                left = mid +1;
+            }
+            else{
+                right = mid;
             }
 
         }
-        return mid;
+        return mid[left];
     }
 };
 
