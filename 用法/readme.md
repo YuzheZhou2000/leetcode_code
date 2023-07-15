@@ -71,6 +71,30 @@
         }
 ```
 
+## 自定义排序
+1. 使用sort函数对STL中的自定义数据结构可以通过cmp实现自定义排序,示例代码如下:
+```
+class Solution
+{
+public:
+    vector<vector<int>> merge(vector<vector<int>> &intervals)
+    {
+        sort(intervals.begin(), intervals.end(), comp);
+        ...
+    }
+
+    /*
+    在C++中，类成员函数不能直接作为std::sort的比较函数。
+    您可以将compare函数声明为static成员函数或定义为类的外部函数
+    */
+    static bool comp(const vector<int> interval1, const vector<int> interval2)
+    {// 比较函数 类内使用必须是静态的
+        return interval1[0] < interval2[0];
+    }
+};
+```
+
+
 
 # 运算
 
