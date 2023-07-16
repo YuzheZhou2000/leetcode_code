@@ -18,6 +18,11 @@
 - 插入 使用`inset`操作
 - `unordered_set` 背后的底层实现是一个哈希（散列）方法 
 
+## map
+- **查找** `find` 和`end` 函数
+- **记数**使用`count()`函数直接返回当前容器中对应元素的个数
+- **插入** 注意区分`insert`函数和`emplace`函数的区别
+
 ---
 ---
 
@@ -92,6 +97,18 @@ public:
         return interval1[0] < interval2[0];
     }
 };
+```
+## 匿名函数
+- 直接上例子
+```
+        sort(arr1.begin(), arr1.end(), [&](int x, int y) {
+            if (rank.count(x)) {
+                return rank.count(y) ? rank[x] < rank[y] : true;
+            }
+            else {
+                return rank.count(y) ? false : x < y;
+            }
+        });
 ```
 
 
