@@ -86,7 +86,12 @@
         }
 ```
 
-## 自定义排序
+## 排序
+
+### 快速排序
+1. 快速排序基于分治的思想 首先确定起始点，然后进行遍历，划分两个子区间以后进行递归。代码示例可参见[快速排序](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-76.cpp)
+
+### 自定义排序
 1. 使用sort函数对STL中的自定义数据结构可以通过cmp实现自定义排序,示例代码如下:
 ```
 class Solution

@@ -49,6 +49,7 @@
 |43|  [剑指 Offer II 073. 狒狒吃香蕉](https://leetcode.cn/problems/nZZqjQ/)   | 2023年7月14日       |数组、二分| 本题目中使用二分查找判断题目中的值即可，注意最后决定的目标量。具体代码参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-73.cpp)  |
 |44|  [剑指 Offer II 074. 合并区间](https://leetcode.cn/problems/SsGoHC/description/)   | 2023年7月15日       |数组、排序| 本题目中考察区间的合并,在本题目中,我们考虑到了使用排序首先对给定却见数据进行调整。但我们使用的是针对区间的右边界进行的,更加优化的算法是根据左区间边界进行确定重复区间,不过我们的代码也没有超出时间限制.总之本题目的解决思路就是首先对数组进行自定义排序,根据排序好的数组确定最后数组的状态.具体代码参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-74.cpp)  |
 |45|  [剑指 Offer II 075. 数组相对排序](https://leetcode.cn/problems/0H97ZC/description/)   | 2023年7月16日       |数组、排序| 本题目中考察自定义排序的设计。 首先本题目学到的知识点：1. 自定义排序可以通过匿名函数在`sort`函数后直接写。2. `map`数据的插入操作需要引起注意。具体代码参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-75.cpp)  |
+|46|  [剑指 Offer II 076. 数组中的第 k 大的数字](https://leetcode.cn/problems/xx4gT2/)   | 2023年7月17日       |数组、排序| 本题目中考察自**快速排序**，切记不能眼高手低，要真的去写。具体代码参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-76.cpp)  |
 
 
 [leetcode题目导航](https://leetcode.cn/problemset/all/?page=61)
