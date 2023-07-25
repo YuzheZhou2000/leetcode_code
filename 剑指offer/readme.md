@@ -51,6 +51,7 @@
 |45|  [剑指 Offer II 075. 数组相对排序](https://leetcode.cn/problems/0H97ZC/description/)   | 2023年7月16日       |数组、排序| 本题目中考察自定义排序的设计。 首先本题目学到的知识点：1. 自定义排序可以通过匿名函数在`sort`函数后直接写。2. `map`数据的插入操作需要引起注意。具体代码参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-75.cpp)  |
 |46|  [剑指 Offer II 076. 数组中的第 k 大的数字](https://leetcode.cn/problems/xx4gT2/)   | 2023年7月17日       |数组、排序| 本题目中考察自**快速排序**，切记不能眼高手低，要真的去写。具体代码参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-76.cpp)  |
 |47|  [剑指 Offer II 077. 链表排序](https://leetcode.cn/problems/7WHec2/)   | 2023年7月24日       |链表、排序| 本题目中考察自**链表排序**，要求了时间复杂度，因此使用归并排序对链表进行排序，其中中间位置的寻找使用双指针确定中间指针的位置。具体代码参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-76.cpp)  |
+|48|  [剑指 Offer II 079. 所有子集](https://leetcode.cn/problems/TVdhkn/description/)   | 2023年7月25日       |寻找所有子集| 本题目中考察自**递归排序**，直接使用递归法对数组进行遍历即可。注意记录结果的中间数组不能使用 `&`。具体代码参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-76.cpp)  |
 
 
 [leetcode题目导航](https://leetcode.cn/problemset/all/?page=61)
