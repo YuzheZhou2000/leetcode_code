@@ -52,6 +52,8 @@
 |46|  [剑指 Offer II 076. 数组中的第 k 大的数字](https://leetcode.cn/problems/xx4gT2/)   | 2023年7月17日       |数组、排序| 本题目中考察自**快速排序**，切记不能眼高手低，要真的去写。具体代码参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-76.cpp)  |
 |47|  [剑指 Offer II 077. 链表排序](https://leetcode.cn/problems/7WHec2/)   | 2023年7月24日       |链表、排序| 本题目中考察自**链表排序**，要求了时间复杂度，因此使用归并排序对链表进行排序，其中中间位置的寻找使用双指针确定中间指针的位置。具体代码参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-77.cpp)  |
 |48|  [剑指 Offer II 079. 所有子集](https://leetcode.cn/problems/TVdhkn/description/)   | 2023年7月25日       |寻找所有子集| 本题目中考察自**递归排序**，直接使用递归法对数组进行遍历即可。注意记录结果的中间数组不能使用 `&`。具体代码参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-79.cpp)  |
+|49|  [剑指 Offer II 080. 含有 k 个元素的组合](https://leetcode.cn/problems/uUsW3B/description/)   | 2023年7月26日       |`dfs`递归遍历| 使用`dfs`可以快速地对本题目进行求解，需要的是把握进口和出口的条件、具体代码参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-80.cpp)  |
+|50|  [剑指 Offer II 095. 最长公共子序列](https://leetcode.cn/problems/qJnOS7/description/)   | 2023年7月26日       |动态规划| 本题目使用**动态规划** 求解本问题，首先需要明确的是动态方程的数组和转移方程以及边界值。1. **dp的含义**: `dp[i][j]`代表第一个字符串从0到i的字串和第二个字串从0到j的最长公共子序列的长度。因此长度是从1开始，到length结束。因此在申请二维空间是需要长和宽各自扩展1个长度。2. **边界值的确定**: 边界值也就是转移方程的初始化状态，当长度全部为0的时候，肯定公共子序列的长度也是0 ，据此进行边界值的确定。3. **确定转移方程**转移方程的求解相对考察思维过程，首先区分当前遍历的i和j两个位置的字串是不是相同，然后分情况讨论：如果相同，则在之前的基础上+1即可，如果不同，则需将原来没有本节点得到最大值赋值过来。整体的具体代码参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/zyz_code/%E5%89%91%E6%8C%87offer/offer-80.cpp)  |
 
 
 [leetcode题目导航](https://leetcode.cn/problemset/all/?page=61)
