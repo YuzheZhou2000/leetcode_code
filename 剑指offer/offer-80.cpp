@@ -7,12 +7,12 @@ using namespace std;
 class Solution {
 public:
     vector<int> temp;
-    vector< <vector <int> > ans;
+    vector< vector <int> > ans;
     vector<vector<int>> combine(int n, int k) {
         dfs(1,n,k)
     }
     void dfs(int cur,int max, int k){
-        if(temp.size == k){
+        if(temp.size() == k){
             ans.push_back(temp);
             return;
         }
