@@ -24,6 +24,8 @@
 - **记数**使用`count()`函数直接返回当前容器中对应元素的个数
 - **插入** 注意区分`insert`函数和`emplace`函数的区别
 
+    记录一种插入的方法：`myMap.insert(pair<int, string>(1,“student_one”));`
+
 ## Unordered_map 
 > unordered_map 容器底层采用的是**哈希表**存储结构，  
 该结构本身不具有对数据的排序功能，所以此容器内部不会自行对存储的键值对进行排序。
@@ -34,6 +36,11 @@
 - 将一个`int`类型的数据转化成`string`类型的数据可以使用函数`string src = to_string(num);`
 - 从`string`字符串中截取一个指定长度的子串`auto pre = src.substr(star, len);`  
 其中第一个参数表示开始截取的起始位置，第二个参数表示需要截取的字串长度
+
+## Queue
+
+### 定义：
+- 最小堆：`priority_queue <type, vector<type>, greater<type> > name;`
 
 ### 其他：
 1. `unordered_map`使用的是STL中默认的哈希函数，而默认哈希函数只适用于基本数据类型（包括 string 类型），而不适用于自定义的结构体或者类。
