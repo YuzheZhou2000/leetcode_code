@@ -61,6 +61,7 @@
 |55|  [剑指 Offer 44. 数字序列中某一位的数字](https://leetcode.cn/problems/shu-zi-xu-lie-zhong-mou-yi-wei-de-shu-zi-lcof/description/)   | 2023年8月17日       |找规律| 本题目使用**不会** 具体代码： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-44.cpp)  |
 |56|  [剑指 Offer 49. 丑数](https://leetcode.cn/problems/chou-shu-lcof/description/)   | 2023年8月20日       |最小堆、优先队列| 本题目使用**优先队列**解决问题，其实升级方法可使用动态规划进行优化，但是太难了不太会，因此使用最小堆进行求解。题目中的要求是**给出从小到大的第n个丑数**,看到题目要求我们首先想到的就是循环、判断大小，但是并不是每一次比较只有一个数字，因此我们使用最小堆记录，堆顶的元素就是最小的元素，如果试问第n个丑数是多少，那么我们就是添加 了n次，且将n-1个最小的丑数删除了。剩下的堆顶元素就是满足题目要求的值。在这个过程中另外需要注意的是：如果直接添加过的元素，那么在更新的时候则不可以被继续添加，因此使用一个`set`集合来记录之前是不是出现过本元素值。 具体代码： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-49.cpp)  |
 |57|  [剑指 Offer 50. 第一个只出现一次的字符](https://leetcode.cn/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof/description/)   | 2023年8月20日       |查找、map| 本题目使用**MAP**解决问题，直接两边遍历、第一遍记录出现的次数、第二遍直接输出 具体代码： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-50.cpp)  |
+|58|  [剑指 Offer 52. 两个链表的第一个公共节点](https://leetcode.cn/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/description/)   | 2023年8月20日       |链表| 本题目为经典的两链表相遇问题，题目的核心在于尽管两个链表长度是不一样的，但是两个链表的和是一样的长度，因此可以分辨遍历两个链表，当走到末尾，开始去遍历另一个链表，最后判断是相遇还是走到了各自的null 具体代码： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-52.cpp)  |
 
 
 [leetcode题目导航](https://leetcode.cn/problemset/all/?page=61)
