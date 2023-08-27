@@ -68,6 +68,7 @@
 |62|  [剑指 Offer 55 - I. 二叉树的深度](https://leetcode.cn/problems/er-cha-shu-de-shen-du-lcof/description/)   | 2023年8月21日       |层次遍历二叉树| 在本题中，所求为二叉树的深度，因此我们只需要层序遍历二叉树，确定二叉树的层数即可。具体代码： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-55-1.cpp)  |
 |62|  [剑指 Offer 55 - II. 平衡二叉树](https://leetcode.cn/problems/ping-heng-er-cha-shu-lcof/description/)   | 2023年8月21日       |平衡二叉树的判断| 在本题中，需要判断给定的二叉树是不是平衡二叉树，可以根据每一个节点的高度自底向上进行判断，如果发现有不满足的节点，那么传导到上面的所有就都是不满足平衡二叉树的了。具体代码： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-55-2.cpp)  |
 |63|  [剑指 Offer 57. 和为s的两个数字](https://leetcode.cn/problems/he-wei-sde-liang-ge-shu-zi-lcof/description/)   | 2023年8月23日       |排序| 在本题中，因为题目中给出的是已经完成排序的数组，因此我们使用双指针从两边向中间查找。具体代码： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-57.cpp)  |
+|64|  [剑指 Offer 29. 顺时针打印矩阵](https://leetcode.cn/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/description/)   | 2023年8月27日       |模拟| 在本题中，注意模拟的编辑判断。**需要复盘**具体代码： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-29.cpp)  |
 
 
 [leetcode题目导航](https://leetcode.cn/problemset/all/?page=61)
