@@ -69,6 +69,8 @@
 |62|  [剑指 Offer 55 - II. 平衡二叉树](https://leetcode.cn/problems/ping-heng-er-cha-shu-lcof/description/)   | 2023年8月21日       |平衡二叉树的判断| 在本题中，需要判断给定的二叉树是不是平衡二叉树，可以根据每一个节点的高度自底向上进行判断，如果发现有不满足的节点，那么传导到上面的所有就都是不满足平衡二叉树的了。具体代码： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-55-2.cpp)  |
 |63|  [剑指 Offer 57. 和为s的两个数字](https://leetcode.cn/problems/he-wei-sde-liang-ge-shu-zi-lcof/description/)   | 2023年8月23日       |排序| 在本题中，因为题目中给出的是已经完成排序的数组，因此我们使用双指针从两边向中间查找。具体代码： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-57.cpp)  |
 |64|  [剑指 Offer 29. 顺时针打印矩阵](https://leetcode.cn/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/description/)   | 2023年8月27日       |模拟| 在本题中，注意模拟的编辑判断。**需要复盘**具体代码： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-29.cpp)  |
+|65|  [剑指 Offer 58 - I. 翻转单词顺序](https://leetcode.cn/problems/fan-zhuan-dan-ci-shun-xu-lcof/description/)   | 2023年8月31日       |字符串| 在本题中，题目要求翻转字符串，因此首先想到的就是首先按照顺序读入每一个单词，然后再数组中进行一个反转，最后记录在需要返回的ans中即可： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-58-1.cpp)  |
+|66|  [剑指 Offer 58 - II. 左旋转字符串](https://leetcode.cn/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/description/)   | 2023年8月31日       |字符串| 在本题中，题目要求旋转字符串，属于超级简单的题目，可以根据string中的内置函数substr进行分割字符串。最后记录在需要返回的ans中即可： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-58-2.cpp)  |
 
 
 [leetcode题目导航](https://leetcode.cn/problemset/all/?page=61)
