@@ -76,6 +76,8 @@
 |69|  [剑指 Offer 65. 不用加减乘除做加法](https://leetcode.cn/problems/bu-yong-jia-jian-cheng-chu-zuo-jia-fa-lcof/description/)   | 2023年9月2日       |位运算|首先使用与操作进行进位的判断，然后使用异或进行计算，但是依旧不是很懂 **需要复盘**具体的代码可以参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-65.cpp)  |
 |70|  [剑指 Offer 64. 求1+2+…+n](https://leetcode.cn/problems/qiu-12n-lcof/description/)   | 2023年9月2日       |递归判断|由于本题中有对加减乘除和逻辑判断等运算的限制，因此我们尝试使用简单的递归解决，又因为在一般递归中都需要判断语句来进行出口确定，因此这里使用位运算来代替： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-64.cpp)  |
 |71|  [剑指 Offer 63. 股票的最大利润](https://leetcode.cn/problems/gu-piao-de-zui-da-li-run-lcof/description/)   | 2023年9月2日       |动态规划|本题目属于最简单的动态规划问题，因为只涉及到一次的股票交易，因此使用一个额外的数组记录当前时刻最便宜的买入价格即可： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-63.cpp)  |
+|72|  [剑指 Offer 56 - I. 数组中数字出现的次数]https://leetcode.cn/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/description/)   | 2023年9月2日       |位运算|本题目依旧为经典的位运算题目，首先需要明确的几个操作，这里再次进行复习  1. `^`异或操作，不同就是1 相同就是0；2. `&`与操作。因为出现了两个 ，因此可以通过分为两组，分别判断，具体参见代码 ： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-56-1.cpp)  |
+|73|  [剑指 Offer 56 - II. 数组中数字出现的次数 II)   | 2023年9月2日       |哈希运算|本题目查找只出现一次的元素，当不明确到底使用什么算法的时候，可以直接使用基础的哈希运算解决。具体参见代码 ： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-56-2.cpp)  |
 
 
 [leetcode题目导航](https://leetcode.cn/problemset/all/?page=61)
