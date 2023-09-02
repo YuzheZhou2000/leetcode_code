@@ -73,6 +73,9 @@
 |66|  [剑指 Offer 58 - II. 左旋转字符串](https://leetcode.cn/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/description/)   | 2023年8月31日       |字符串| 在本题中，题目要求旋转字符串，属于超级简单的题目，可以根据string中的内置函数substr进行分割字符串。最后记录在需要返回的ans中即可： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-58-2.cpp)  |
 |67|  [剑指 Offer 67. 把字符串转换成整数](https://leetcode.cn/problems/ba-zi-fu-chuan-zhuan-huan-cheng-zheng-shu-lcof/description/)   | 2023年9月2日       |字符串|本题的题目要求是根据一个不规则的字符串类型的数据，将其转化为标准的int类型数据，且不能使用C++的库函数，因此可以使用模拟的方法解决本问题，注意符号位置的判断，具体的代码可以参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-67.cpp)  |
 |68|  [剑指 Offer 66. 构建乘积数组](https://leetcode.cn/problems/gou-jian-cheng-ji-shu-zu-lcof/description/)   | 2023年9月2日       |构造乘积数组|本题的题目要求给定的数组，构造一个除了本身以外其他所有元素乘积得到数组，首先我们可以从题中知道，不允许使用除法。因此我们想到使用构造两个数组，分别表示出了本身以外的左侧\右侧所有元素的相乘。具体的代码可以参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-66.cpp)  |
+|69|  [剑指 Offer 65. 不用加减乘除做加法](https://leetcode.cn/problems/bu-yong-jia-jian-cheng-chu-zuo-jia-fa-lcof/description/)   | 2023年9月2日       |位运算|首先使用与操作进行进位的判断，然后使用异或进行计算，但是依旧不是很懂 **需要复盘**具体的代码可以参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-65.cpp)  |
+|70|  [剑指 Offer 64. 求1+2+…+n](https://leetcode.cn/problems/qiu-12n-lcof/description/)   | 2023年9月2日       |递归判断|由于本题中有对加减乘除和逻辑判断等运算的限制，因此我们尝试使用简单的递归解决，又因为在一般递归中都需要判断语句来进行出口确定，因此这里使用位运算来代替： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-64.cpp)  |
+|71|  [剑指 Offer 63. 股票的最大利润](https://leetcode.cn/problems/gu-piao-de-zui-da-li-run-lcof/description/)   | 2023年9月2日       |动态规划|本题目属于最简单的动态规划问题，因为只涉及到一次的股票交易，因此使用一个额外的数组记录当前时刻最便宜的买入价格即可： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-63.cpp)  |
 
 
 [leetcode题目导航](https://leetcode.cn/problemset/all/?page=61)
