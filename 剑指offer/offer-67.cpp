@@ -8,59 +8,100 @@ public:
     int strToInt(string str)
     {
         int len = str.size();
-        int PN = 1;
-        int star = 0;
-        // 找到第一个开始记录的数组
-
-        for (; star < len; star++)
+        bool PN = true; // 默认是一个正数
+        int i = 0;
+        for (; i < len; i++)
         {
-            cout<<str[star]-'0'<<endl;
-
-            if (str[star] != '-' && (str[star] < '0' || str[star] > '9'))
+            if (str[i] == ' ')
             {
-                // 不是负数  并且  不是阿拉伯数字
+                continue;
+            }
+            else if(str[i] == '+')
+            {
+                i++;
+                break;
+            }
+            else if (str[i] == '-')
+            {
+                PN = false;
+                i++;
+                break;
+            }
+            else if (str[i] >= '0' && str[i] <= '9')
+            {
+                break;
+            }
+            else
+            {
+                // 出现了非法字符，直接返回
                 return 0;
             }
-
-            else
-            {
-                cout <<"s";
-                if (str[star] == '-')
-                {
-                    PN = -1;
-                    star++;
-
-                    if (!(str[star] < '0' && str[star] > '9'))
-                    {
-                        return 0;
-                    }
-                }
-                break;
-            }
         }
-        cout << "why"<<endl;
         string temStr;
-        for (; star < len; star++)
+        // 此时i记录了第一个可能出现的字符
+        for (; i < len; i++)
         {
-            if (str[star] >= '0' && str[star] <= '9')
+            if (str[i] >= '0' && str[i] <= '9')
             {
-                temStr += str[star];
+                temStr += str[i];
             }
             else
             {
                 break;
             }
         }
-        cout <<"temstr: "<< temStr << endl;
-        int ans = atoi(temStr.c_str());
+
+        // 现在需要做的就是将temStr字符串转为int类型的数据
+        int ans;
+        ans = myStr2Int(temStr, PN);
         return ans;
+    }
+
+    int myStr2Int(string str, bool PN)
+    {
+        int ans = 0;
+        int len = str.size();
+        int wei = 1;
+        
+        for (int i = len - 1; i >= 0; i--)
+        {
+            ans += (str[i] - '0') * wei;
+            wei *= 10;
+        }
+
+        // 首先判断 32 位大小的有符号整数
+
+        if (PN == true)
+        {
+            // 是一个正数
+            if (ans > numeric_limits<int>::max())
+            {
+                return numeric_limits<int>::max();
+            }
+            else
+            {
+                return int(ans);
+            }
+        }
+        else
+        {
+            ans = -1 * ans;
+            if (ans < numeric_limits<int>::min())
+            {
+                return numeric_limits<int>::min();
+            }
+            else
+            {
+                return int(ans);
+            }
+        }
     }
 };
 
 int main()
 {
     Solution s;
-    cout << "res: " << s.strToInt("   -42");
+    cout << "res: " << s.strToInt("  0000000000012345678");
 
     return 0;
 }

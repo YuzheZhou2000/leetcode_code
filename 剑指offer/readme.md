@@ -71,6 +71,8 @@
 |64|  [剑指 Offer 29. 顺时针打印矩阵](https://leetcode.cn/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/description/)   | 2023年8月27日       |模拟| 在本题中，注意模拟的编辑判断。**需要复盘**具体代码： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-29.cpp)  |
 |65|  [剑指 Offer 58 - I. 翻转单词顺序](https://leetcode.cn/problems/fan-zhuan-dan-ci-shun-xu-lcof/description/)   | 2023年8月31日       |字符串| 在本题中，题目要求翻转字符串，因此首先想到的就是首先按照顺序读入每一个单词，然后再数组中进行一个反转，最后记录在需要返回的ans中即可： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-58-1.cpp)  |
 |66|  [剑指 Offer 58 - II. 左旋转字符串](https://leetcode.cn/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/description/)   | 2023年8月31日       |字符串| 在本题中，题目要求旋转字符串，属于超级简单的题目，可以根据string中的内置函数substr进行分割字符串。最后记录在需要返回的ans中即可： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-58-2.cpp)  |
+|67|  [剑指 Offer 67. 把字符串转换成整数](https://leetcode.cn/problems/ba-zi-fu-chuan-zhuan-huan-cheng-zheng-shu-lcof/description/)   | 2023年9月2日       |字符串|本题的题目要求是根据一个不规则的字符串类型的数据，将其转化为标准的int类型数据，且不能使用C++的库函数，因此可以使用模拟的方法解决本问题，注意符号位置的判断，具体的代码可以参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-67.cpp)  |
+|68|  [剑指 Offer 66. 构建乘积数组](https://leetcode.cn/problems/gou-jian-cheng-ji-shu-zu-lcof/description/)   | 2023年9月2日       |构造乘积数组|本题的题目要求给定的数组，构造一个除了本身以外其他所有元素乘积得到数组，首先我们可以从题中知道，不允许使用除法。因此我们想到使用构造两个数组，分别表示出了本身以外的左侧\右侧所有元素的相乘。具体的代码可以参见： [AC代码](https://github.com/YuzheZhou2000/leetcode_code/blob/main/%E5%89%91%E6%8C%87offer/offer-66.cpp)  |
 
 
 [leetcode题目导航](https://leetcode.cn/problemset/all/?page=61)
