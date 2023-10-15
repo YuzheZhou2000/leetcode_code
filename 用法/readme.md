@@ -24,7 +24,9 @@
 - **记数**使用`count()`函数直接返回当前容器中对应元素的个数
 - **插入** 注意区分`insert`函数和`emplace`函数的区别
 
-    记录一种插入的方法：`myMap.insert(pair<int, string>(1,“student_one”));`
+    记录常用的插入的方法：  
+    `myMap.insert(pair<int, string>(1,“student_one”));`    
+    `myMap.emplace(1, "student_one");`
 
 ## Unordered_map 
 > unordered_map 容器底层采用的是**哈希表**存储结构，  
