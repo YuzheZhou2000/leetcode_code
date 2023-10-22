@@ -7,10 +7,10 @@ public:
     {
         int ans = -1;
         int star = 0;
-        int end = x;
+        long long end = x;
         while (end >= star)
         {
-            int mid = star + (end - star) / 2;
+            long long mid = star + (end - star) / 2; // 防止越界
             if (mid * mid <= x)
             {
                 ans = mid;

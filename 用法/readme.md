@@ -89,7 +89,7 @@
 
 ## 循环
 - 使用auto进行指定结构的遍历
-```
+```cpp
         vector<pair<int, int>> directions{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
         for (const auto &dir : directions)
         {
