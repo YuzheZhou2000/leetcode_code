@@ -9,7 +9,12 @@ struct ListNode
     ListNode() : val(0), next(nullptr) {}
     ListNode(int v) : val(v), next(nullptr) {}
 };
-
+/**
+ * 本题目的要求是删除链表中所有给定元素值得节点
+ * 我们需要注意得是不仅仅是删除一个 因为可能存在多个相同目标值的节点
+ * 因此通过链表遍历进行目标值的定位即可。
+ * 本题目难度不大 注意细节即可。
+ */
 class Solution
 {
 public:

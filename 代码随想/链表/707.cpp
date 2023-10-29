@@ -1,5 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+/**
+ * 本题目为模拟题目，模拟一个链表，并且可以通过下标对链表节点进行访问
+ * 1， 链表的数据结构我们使用自定义的结构体实现
+ * 2， 维护一个size的int变量，代表整个链表中整体的结点个数
+ */
+
 class MyLinkedList
 {
 public:
@@ -66,7 +73,7 @@ public:
         if (index > size || index < 0)
         {
             // 如果 index 等于链表的长度，那么该节点会被追加到链表的末尾。
-            如果 index 比长度更大，该节点将 不会插入 到链表中 return;
+            // 如果 index 比长度更大，该节点将 不会插入 到链表中 return;
         }
         ListNode *node = new ListNode(val);
 

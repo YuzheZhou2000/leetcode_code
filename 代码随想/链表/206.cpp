@@ -10,7 +10,11 @@ struct ListNode
     ListNode() : val(0), next(nullptr) {}
     ListNode(int v) : val(v), next(nullptr) {}
 };
-
+/**
+ * 本题目更是基础的链表反转
+ * 我们可以通过双指针来进行解决这个问题，主要后一个状态的保存即可
+ * 目的是防止改变链接方式后导致后续节点无法定位
+ */
 class Solution
 {
 public:
