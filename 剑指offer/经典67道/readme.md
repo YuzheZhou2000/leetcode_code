@@ -116,3 +116,46 @@
             }
         };
     ```
+    ## 面试题6: 从尾到头打印链表
+    > 要求是在不改变链表状态的情况下从尾到头打印链表
+    - 首先我们能够想到的就是直接遍历一遍链表，将链表中的结果顺序存储在`vector`容器中，当完成一遍顺序遍历以后，就可以得到一个*从头到尾*的结果，然后再将`vector`进行逆序即可。这样做有点取巧的嫌疑。PS：逆序操作`reverse(res.begin(), res.end());`时间复杂度为`O(n)`，因此整体的时间复杂度也是`O(n)`。另外剑指offer中推荐使用stack栈结构解决本问题，其实站在高度上来看，使用栈结构的先进先出的特征，和使用vector首先存下来element以后反序输出，是一样的
+        ```cpp
+        class Solution {
+            public:
+                vector<int> printListFromTailToHead(ListNode* head) {
+                    // 首先想到的就是直接顺序读取一遍链表，存储到数组中，然后将数组逆序即可。
+                    vector<int> res;
+                    ListNode* pHead = head;
+                    while (pHead != nullptr) {
+                        /* code */
+                        res.push_back(pHead->val);
+                        pHead = pHead->next;
+                    }
+                    reverse(res.begin(), res.end());
+                    return res;
+                }
+            };
+        ```
+    - 法2：因为考虑到使用`reverse`可能会被认为是使用了库函数而导致的取巧，因此我们使用一种递归的方法解决本问题，具体来说，就是递归访问链表，这里需要注意的是递归的判断语句。
+    ```cpp
+    class Solution {
+        public:
+            vector<int> printListFromTailToHead(ListNode* head) {
+                // 如果使用递归的解法解决这个问题
+                vector<int> ans;
+
+                getValofList(ans, head);
+
+                return ans;
+            }
+            void getValofList(vector<int>& ans, ListNode* node) {
+                if (node != nullptr) {
+                    // 必须深度理解这个递归的写法
+                    if (node->next != nullptr) {
+                        getValofList(ans, node->next);
+                    }
+                    ans.push_back(node->val);
+                }
+            }
+        };
+    ```
