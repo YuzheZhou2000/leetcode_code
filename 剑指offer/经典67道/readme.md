@@ -211,7 +211,48 @@
     };
     ```
 
+- 法二： 在原有算法的基础上，因为上面代码我们在中序遍历的过程中，根节点是通过顺序遍历判断是否相同得到的，因此使用`hash`对原来的中序遍历序列进行索引的记录，在检索的过程中直接实现即可。
+    ```cpp
+    class Solution {
+    public:
+        TreeNode* reConstructBinaryTree(vector<int>& preOrder, vector<int>& vinOrder) {
+            // write code here
+            // 二叉树的重建  首先可以使用递归的方法解决
+            int lenght = preOrder.size();
+            if (lenght == 0) {
+                return nullptr;
+            }
+            // 引入hash进行加速，可以记录在中序遍历中 出现的位置
+            unordered_map<int, int> indexMap;
+            for (int i = 0; i < lenght; i++) {
+                indexMap.emplace(vinOrder[i], i);
+            }
 
+            return bulidTree(indexMap, preOrder, vinOrder, 0, lenght - 1, 0, lenght - 1);
+        }
+
+        // 通过递归得到二叉树
+        TreeNode* bulidTree(unordered_map<int, int>& indexMap, vector<int>& preOrder,
+                            vector<int>& vinOrder, int star_per, int end_per, int star_vin, int end_vin) {
+            if (end_vin >= star_vin) {
+                // 根节点肯定是前序遍历的第一个元素
+                TreeNode* root = new TreeNode(preOrder[star_per]);
+
+                // 下一步开始寻找根节点在中序遍历中的index
+                int index = indexMap[preOrder[star_per]];
+
+                // 这时候得到了根节点在中序遍历中的index
+                int len_left = index - star_vin;
+                root->left = bulidTree(indexMap, preOrder, vinOrder, star_per + 1,
+                                    star_per + len_left, star_vin, index - 1);
+                root->right = bulidTree(indexMap, preOrder, vinOrder, star_per + len_left + 1,
+                                        end_per, index + 1, end_vin);
+                return root;
+            }
+            return nullptr;
+        }
+    };
+    ```
 
 
 
