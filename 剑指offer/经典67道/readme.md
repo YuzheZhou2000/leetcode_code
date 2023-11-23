@@ -254,7 +254,39 @@
     };
     ```
 
+## 使用两个栈结构实现队列
+> 本题目解决问题的关键在于理解队列的先进先出和栈的先进后出
+- 因为栈和队列的最大的不同就在于`pop`的时候，一个是首先弹出最先进来的，一个是最后弹出最后进来的。  
+因此只需要在pop或者push中的一个函数的操作中使用辅助结构进行处理即可。在这里我们使用第二个栈结构作为`pop`操作时的辅助容器。如果需要弹出元素，首先对元素逆序操作。从1转移到2中，然后再弹出。当然如果直接进行过转移操作，就不需要再次进行转移。
+    ```cpp
+    class Solution {
+    public:
+        void push(int node) {
+            stack1.push(node);
+        }
 
+        int pop() {
+            int res;
+            //
+            if (stack2.empty()) {
+                // 如果第二个栈结构是空的，那么需要将第一个栈中的元素迁移到第二个栈中
+                while (!stack1.empty()) {
+                    /* code */
+                    int tem = stack1.top();
+                    stack2.push(tem);
+                    stack1.pop();
+                }
+            }
+            res = stack2.top();
+            stack2.pop();
+            return res;
+        }
+
+    private:
+        stack<int> stack1;
+        stack<int> stack2;
+    };
+    ```
 
 - 解决git上传失败
     ```python
