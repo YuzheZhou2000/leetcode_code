@@ -84,7 +84,7 @@
             }
         };
     ```
-## 面试题5：替换空格
+## 面试题 5：替换空格
 > 对于本题目最直观的认识就是将一个字符串中的空格替换为`ascll`码中的`%20`,但是如果直接遍历字符串，进行替换，每次发现一个空格，都需要将后面所有的字符后移一个位置。因此需要探索一种新的更快速的解决方法。
 - 如果将时间复杂度变为`O(n)`，那么将快速解决这个问题，首先遍历给定的字符串，统计空格出现的次数，每一个空格都需要被换成`%20`， 相比于原来的空格来说是增加了两个字符长度，因此在完成一遍遍历以后，我们就可以确定新的字符串的长度，然后从后向前进行复制即可。  
 需要注意的是因为给的是一个`char *`类型的数据，因此可以直接使用下标索引进行访问每一个字符。
@@ -116,7 +116,7 @@
             }
         };
     ```
-    ## 面试题6: 从尾到头打印链表
+    ## 面试题 6: 从尾到头打印链表
     > 要求是在不改变链表状态的情况下从尾到头打印链表
     - 首先我们能够想到的就是直接遍历一遍链表，将链表中的结果顺序存储在`vector`容器中，当完成一遍顺序遍历以后，就可以得到一个*从头到尾*的结果，然后再将`vector`进行逆序即可。这样做有点取巧的嫌疑。PS：逆序操作`reverse(res.begin(), res.end());`时间复杂度为`O(n)`，因此整体的时间复杂度也是`O(n)`。另外剑指offer中推荐使用stack栈结构解决本问题，其实站在高度上来看，使用栈结构的先进先出的特征，和使用vector首先存下来element以后反序输出，是一样的
         ```cpp
@@ -159,6 +159,60 @@
             }
         };
     ```
+## 面试题 7：重建二叉树
+> 本题目为经典的二叉树问题，给定前序和中序遍历的数组，要求得到一个重建以后的原始二叉树
+- 首先需要理解前序遍历和中序遍历的概念，对于前\中\后序遍历而言，这都是一种深度遍历的策略，不同的遍历方式是指对于中间根节点而言，访问的顺序是怎样的。  
+因此在给定前序遍历和中序遍历以后，我们可以知道的是前序遍历的**第一个元素就是当前子树的根节点**， 然后根据这个根节点在中序遍历得到的数组中定位到本节点，那么这个节点向前一段就是左子树，向后一段就是右子树。由此可以得到一个两个子树中的节点唉两个遍历数组中的距离的区间位置，然后通过递归迭代进行重建即可。需要注意的是在递归遍历的过程中，两个不同的边界位置的确定。
+    ```cpp
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         *
+         * @param preOrder int整型vector
+         * @param vinOrder int整型vector
+         * @return TreeNode类
+         */
+        TreeNode* reConstructBinaryTree(vector<int>& preOrder, vector<int>& vinOrder) {
+            // write code here
+            // 二叉树的重建  首先可以使用递归的方法解决
+            int lenght = preOrder.size();
+            if (lenght == 0) {
+                return nullptr;
+            }
+            return bulidTree(preOrder, vinOrder, 0, lenght - 1, 0, lenght - 1);
+        }
+
+        // 通过递归得到二叉树
+        TreeNode* bulidTree(vector<int>& preOrder, vector<int>& vinOrder, int star_per,
+                            int end_per, int star_vin, int end_vin) {
+            if (end_vin >= star_vin) {
+                // 根节点肯定是前序遍历的第一个元素
+                TreeNode* root = new TreeNode(preOrder[star_per]);
+
+                // 下一步开始寻找根节点在中序遍历中的index
+                int index = star_vin;
+                for (; index < end_vin; index++) {
+                    if (vinOrder[index] == preOrder[star_per]) {
+                        break;
+                    }
+                }
+                // 这时候得到了根节点在中序遍历中的index
+                int len_left = index - star_vin;
+                root->left = bulidTree(preOrder, vinOrder, star_per + 1, star_per + len_left,
+                                    star_vin, index - 1);
+                root->right = bulidTree(preOrder, vinOrder, star_per + len_left + 1, end_per,
+                                        index + 1, end_vin);
+                return root;
+            }
+            return nullptr;
+        }
+    };
+    ```
+
+
+
 
 
 - 解决git上传失败
