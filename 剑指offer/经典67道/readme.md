@@ -433,8 +433,32 @@
     ```
 ---
 
+## 面试题：矩阵覆盖问题
+> 本题目其实还是**斐波那契数列**问题，至于为什么是，只能说是通过找规律得到的。
+- 还是通过增加3个变量的方式进行**这种解法其实是动态规划的思路**
+    ```cpp
+    class Solution {
+    public:
+        int rectCover(int number) {
+            // 因为需要2* n的矩阵，因此矩阵的宽一直都是2  只是在长的维度上进行了改变
+            if (number <= 2) {
+                return number;
+            }
+            // 这里其实还是一个斐波那契数列问题
+            int val_1 = 2;
+            int val_2 = 1;
+            int ans;
 
+            for (int i = 2; i < number; i++) {
+                ans = val_2 + val_1;
+                val_2 = val_1;
+                val_1 = ans;
+            }
+            return ans;
 
+        }
+    };
+    ```
 
 ---
 
