@@ -375,8 +375,48 @@
 - 时间复杂度为$O(log(n))$的解法
     - 根据矩阵的理论，转化为二维矩阵的幂运算，剑指offer说尽管时间复杂度小，但是不适合面试，就不写过程啦
 
+## 补充：跳台阶
+> 本题目和上一个斐波那契数列问题的思路完全一致，只需要控制好变量即可
+    ```cpp
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         *
+         * @param number int整型
+         * @return int整型
+         */
+        int jumpFloor(int number) {
+            // write code here
+            // 根据斐波那契数列的经验，我们知道直接使用递归会超级耗时
+            // 因此采用使用中间变量记录的方法
+            if (number <= 2) {
+                return number;
+            }
+
+            // 通过观察可以发现规律，每一次都是上一层(再跳一个)+上上层(再跳两个)
+            int val_2 = 1;
+            int val_1 = 2;
+            int ans;
+
+            for (int i = 2; i < number; i++) {
+                ans = val_2 + val_1;
+                // 更新状态
+                val_2 = val_1;
+                val_1 = ans;
+            }
+
+            return ans;
+        }
+    };
+    ```
 
 
+
+---
+
+---
 
 - 解决git上传失败
     ```python
