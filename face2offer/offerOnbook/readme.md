@@ -569,6 +569,46 @@
         }
     };
     ```
+## 面试题: 链表中倒数第k个结点
+> 本题目为经典的链表类型题目，首先需要知道由于链表和线性结构的不同，每一个节点的内存都是互相没有相邻的，因此需要通过指针联系在一起
+- 由于题目的要求是寻找**倒数**第k个节点，因此首先想到的方法就是先通过一次遍历的到这个链表中所有元素的个数，然后反推倒数第k个是正数第 *?* 个。 但是这样会多遍历一次，可以采用的做法是**双指针**首先让快指针前进k个单位，然后两个指针同时移动，当快指针走到结尾的时候，慢指针真好指在目标接待你
+    - 但是这个问题也是有坑的，就是快指针在向前走的时候，需要知道是不是走到最后了，就是题目给的测试用例可能存在k很大，但是实际上链表长度并不长的情况。
+    ```cpp
+    class Solution {
+    public:
+        ListNode* FindKthToTail(ListNode* pListHead, unsigned int k) {
+
+            /***
+             *
+             * 因为是倒数第K个节点，因此我们如果首先遍历一遍，
+             * 得到总长度然后基于总长度，进行计算。这样的时间复杂度可能会高一些
+             * 因此我们采用双指针的方法进行。
+             *
+             */
+
+            if (pListHead == nullptr) {
+                return nullptr;
+            }
+
+            // 要求倒数第k个节点，我们首先让快指针向后移动k个节点
+            ListNode* pFast = pListHead;
+            ListNode* pSlow = pListHead;
+            for (int i = 0; i < k; i++) {
+                pFast = pFast->next;
+                if (pFast == nullptr && i + 1 < k) {
+                    return nullptr;
+                }
+            }
+            while (pFast != nullptr) {
+
+                pFast = pFast->next;
+                pSlow = pSlow->next;
+
+            }
+            return pSlow;
+        }
+    };
+    ```
 
 
 ---
