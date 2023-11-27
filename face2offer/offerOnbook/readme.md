@@ -609,7 +609,45 @@
         }
     };
     ```
+## 面试题 24: 反转链表
+> 本题目考察了基础的链表操作，反转链表需要保证的是指针不能是野指针，使用三个指针记录
+- 注意的是原来的头结点需要把next置为null 否则循环引用
+    ```cpp
+    /**
+     * struct ListNode {
+     *  int val;
+     *  struct ListNode *next;
+     *  ListNode(int x) : val(x), next(nullptr) {}
+     * };
+     */
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         *
+         * @param head ListNode类
+         * @return ListNode类
+         */
+        ListNode* ReverseList(ListNode* head) {
+            // write code here
+            if (head == nullptr) {
+                return head;
+            }
+            ListNode* p_next = head;
+            ListNode* p_cur = nullptr;
+            ListNode* p_tem = head;
+            while (p_next != nullptr) {
+                p_tem = p_next->next;
+                p_next->next = p_cur;
+                p_cur = p_next;
+                p_next = p_tem;
+            }
+            return p_cur;
+        }
+    };
 
+    ```
 
 ---
 
