@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+/**
+ * 反转链表
+*/
 struct ListNode
 {
     int val;
