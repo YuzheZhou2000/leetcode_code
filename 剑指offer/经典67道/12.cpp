@@ -41,7 +41,7 @@ public:
         }
         while (exponent)
         {
-            if (exponent & 0x01 == 0x01)
+            if ((exponent & 0x01) == 0x01)
             {
                 // 是一个记述
 
