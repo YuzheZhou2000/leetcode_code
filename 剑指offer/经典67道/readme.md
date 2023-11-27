@@ -489,7 +489,55 @@
     };
     ```    
 
+## 面试题 16：数值的整数次方
+> 题目中仅仅说出了数值整数次方，因此我们需要考虑到的坑包括第一个**数值** ，这可能有正数、负数和0，都需要综合考虑。另外在指数位置上的整数次方，也可能是正数、负数和0.这些都是我们需要分情况进行讨论，并且在代码涉及到的point。
+- 首先对于不使用库函数进行次方的计算，想到的第一个解决方法就是不断循环。但是考虑到指数计算的特点，我们可以通过两个相同的指数乘起来直接变成
+**2倍**来解决。
+- 另外对于计算来说，由于在本题目中涉及到了`double`类型的数据，那么在判断相等的时候，如果直接使用`==`可能会出现错误，因为`double`类型在小数点位置上是粗糙的，因此我们使用了相减后通过阈值判断是不是取$0$。
+    ```cpp
+    class Solution {
+    public:
+        double Power(double base, int exponent) {
+            // 在本题目中，需要知道底数base是一个doubel类型的数据，因此
+            // 需要讨论base的情况
+            if (fabs(base - 0.0) < 1e-6) {
+                // 如果底数是0，那么我们直接返回
+                return 0.0;
+            }
+            if (exponent == 0) {
+                return 1.0;
+            }
+            bool sign = false;
+            if (exponent < 0) {
+                sign = true;
+            }
+            exponent = abs(exponent);
+            // 开始正式计算逻辑 -- 递归
+            double ans = myPower(base, exponent);
+            if (sign) {
+                ans = 1 / ans;
+            }
+            return ans;
+        }
+        double myPower(double base, int exponent) {
+            // 首先使用位运算判断
+            if (exponent == 1) {
+                return base;
+            }
+            while (exponent) {
+                if ((exponent & 0x01) == 0x01) {
+                    // 是一个记述
 
+                    return base * myPower(base, exponent >> 1) * myPower(base, exponent >> 1);
+                } else {
+                    return myPower(base, exponent >> 1) * myPower(base, exponent >> 1);
+                }
+            }
+            return 0.0;
+        }
+    };
+
+    ```
 ---
 
 - 解决git上传失败
