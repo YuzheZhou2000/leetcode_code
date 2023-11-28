@@ -751,8 +751,39 @@
     };
 
     ```
----
+## 面试题 27： 二叉树的镜像
+> 本题目需要对二叉树的左右子树进行一个翻转操作，其实也就是调换左/右两个子树的位置，为了实现真实的镜像，可以从顶向下以递归的方法进行。
+- 牛客网说存在空间复杂度为$O(1)$的实现方法，其实也就是直接在原来的数据结构上进行修改，而不是用额外的辅助空间。
+    ```cpp
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         *
+         * @param pRoot TreeNode类
+         * @return TreeNode类
+         */
+        TreeNode* Mirror(TreeNode* pRoot) {
+            // write code here
+            // 本科找实习的面试的第一轮的第一道面试题目
+            // 使用递归的方法进行，可以简单快速的完成本工作
+            if (pRoot == nullptr) {
+                return nullptr;
+            }
+            TreeNode* temp = pRoot->left;
+            pRoot->left = pRoot->right;
+            pRoot->right = temp;
+            pRoot->left = Mirror(pRoot->left);
+            pRoot->right = Mirror(pRoot->right);
+            return pRoot;
+        }
+    };
+    ```
 
+
+
+---
 - 解决git上传失败
     ```python
     git config --global --unset http.proxy 
