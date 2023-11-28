@@ -780,8 +780,69 @@
         }
     };
     ```
+## 面试题 29: 顺时针打印矩阵
+> 本题目的重点在于循环的判断
+- 需要注意的是，我们的算法是将顺时针打印看成是**四个边界线**的分别输出。但是可能存在的一个大问题就是如果矩阵不是一个标准的正方形。那么可能在最后一个循环打印后，只留下了一行或者一列数据，这时候比如添加判断语句。否则是不可以的哦~
 
+    ```cpp
+    #include <iostream>
+    class Solution {
+    public:
+        vector<int> printMatrix(vector<vector<int> > matrix) {
+            vector<int> ans;
+            // 通过维护左上角和右下角的下标来实现顺时针遍历
+            int star_x = 0, star_y = 0;
+            int end_x = matrix.size() - 1;
+            if (end_x == -1) {
+                return ans;
+            }
+            int end_y = matrix[0].size() - 1;
+            while (star_x <= end_y && star_y <= end_y) {       
+                // 分四个方向打印一圈   
+                int i = star_x;
+                int j = star_y;
 
+                if (i<= end_x){
+                // 1. 左到右
+                while (j <= end_y) {
+                    //cout << "a: " << matrix[i][j] << endl;
+                    ans.push_back(matrix[i][j++]);
+                }
+                }
+                // 2. 上到下
+                i = star_x + 1;
+                j = end_y;         
+                while (i < end_x) {
+                    //cout << "b: " << matrix[i][j] << endl;
+                    ans.push_back(matrix[i++][j]);
+                }
+                // 3. 右到左
+                if (end_x  > star_x) {
+                    i = end_x;
+                    j = end_y;  
+                    while (j >= star_y) {
+                    // cout << "c: " << matrix[i][j] << endl;
+                        ans.push_back(matrix[i][j--]);
+                    }
+                }
+                // 4. 下到上
+                if (star_y < end_y) {
+                    i = end_x - 1;
+                    j = star_y;
+                    while (i > star_x) {
+                        // cout << "d: " << matrix[i][j] << endl;
+                        ans.push_back(matrix[i--][j]);
+                    }
+                }
+                star_x++;
+                star_y++;
+                end_x--;
+                end_y--;
+            }
+            return ans;
+        }
+    };
+    ```
 
 ---
 - 解决git上传失败
