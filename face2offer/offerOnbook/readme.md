@@ -648,7 +648,56 @@
     };
 
     ```
+## 面试题 25： 合并两个有序的链表
+> 本题目为经典的链表操作类型题目，首先需要明确的是操作的**空间复杂度**，因为需要的时间复杂度为$O(1)$,所以需要原地操作
+- 一个可以考虑的点在于使用伪头节点，可以简化链表中的操作，每一次比较之后选择使用哪一个链表中的第一个元素插入到新得到的链表之中。另外最后判断是不是存在还有节点没有被比较的情况。
+    ```cpp
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         * 
+         * @param pHead1 ListNode类 
+         * @param pHead2 ListNode类 
+         * @return ListNode类
+         */
+        ListNode* Merge(ListNode* pHead1, ListNode* pHead2) {
+            // write code here
+            // 因为空间复杂度要求为O（1），因此需要在原链表上直接进行操作
+            ListNode * p_curr_1 = pHead1;
+            ListNode * p_curr_2 = pHead2;
+            if(pHead1 == nullptr)
+                return pHead2;
+            if (pHead2 == nullptr)
+                return pHead1;
 
+            ListNode * p_ans = new ListNode(0);
+            ListNode * p_curr = p_ans;
+
+            // 开始合并操作 是递增序列
+            while(p_curr_1 != nullptr && p_curr_2 != nullptr){
+                cout <<"1: "<<p_curr_1->val << "     2: "<<p_curr_2->val<<endl;
+                if (p_curr_1->val < p_curr_2->val){
+                    p_curr->next = p_curr_1;            
+                    p_curr_1 = p_curr_1->next;
+                }else{
+                    p_curr->next = p_curr_2;
+                    p_curr_2 = p_curr_2->next;
+                }
+                p_curr = p_curr->next;
+            }
+            if (p_curr_1 != nullptr){
+                p_curr->next = p_curr_1;
+            }
+            if(p_curr_2 != nullptr){
+                p_curr->next = p_curr_2;
+            }
+            return p_ans->next;
+        }
+    };
+    ```
+      
 ---
 
 - 解决git上传失败
