@@ -843,6 +843,39 @@
         }
     };
     ```
+## 面试题 30 ： 包含min函数的栈
+> 本题目的要求是实现一个能够得到栈中所含最小元素的 min 函数 ，属于是在原来已有的`stack`库函数功能的基础上添加附加功能。
+- 我们的策略是使用一个辅助的栈结构，在每一次`push`的时候，新的辅助栈结构保存对应的最小的元素，因此可以理解为辅助栈其实是真实`value`的另一个最小表示。通过表示最小的`value`实现min函数功能。
+    ```cpp
+    class Solution {
+    public:
+        stack<int> sta;
+        stack<int> minSta;
+        void push(int value) {
+            sta.push(value);
+            // 通过辅助栈 维护辅助栈对应的元素正好是当前元素以及之前所有元素中最小的元素。
+            if (minSta.empty()) {
+                minSta.push(value);
+            } else {
+                int ans = minSta.top() < value ? minSta.top() : value;
+                minSta.push(ans);
+            }
+        }
+        void pop() {
+            minSta.pop();
+            sta.pop();
+        }
+        int top() {
+            int ans = sta.top();
+            return ans;
+        }
+        int min() {
+            int ans = minSta.top();
+            return ans;
+        }
+    };
+    ```
+- 学到了一种很 ***骚*** 的操作，就是使用一个栈结构，但是每次压入最小值和真实值两个元素，其实就是两个栈合二为一。没有什么创新点，只是想法值得借鉴学习。算是打开新思路吧。
 
 ---
 - 解决git上传失败

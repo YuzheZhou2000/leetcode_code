@@ -1,7 +1,7 @@
 # include <bits/stdc++.h>
 using namespace std;
 /**
- * 包含min操作的栈结构
+ * 包含min操作的栈结构 通过辅助栈结构维护
 */
 class Solution {
   public:
