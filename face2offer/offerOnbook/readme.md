@@ -697,7 +697,60 @@
         }
     };
     ```
-      
+## 面试题 26： 树的子结构
+> 本题考查的是树的子结构，想到两个树之间的匹配，首先应考虑使用递归解法
+- 我们这里想到的算法是**迭代**遍历和**递归**匹配相结合的方法。首先利用队列递归层次遍历树结构，遍历每一个节点，对每一个节点都是和目标进行递归匹配。
+
+    - TODO： 可以考虑在遍历原来大的二叉树的时候，也使用递归的方法，好像复杂度会低一些？
+    ```cpp
+    class Solution {
+    public:
+        bool HasSubtree(TreeNode* pRoot1, TreeNode* pRoot2) {
+            // 首先写一个遍历 对原来树结构中的每一个节点进行遍历
+            // 如果通过迭代的方式写一个针对大的子树的遍历
+            bool ans = false;
+            if (pRoot1 == nullptr || pRoot2 == nullptr) {
+                return ans;
+            }
+            queue<TreeNode*> qtree;
+            qtree.emplace(pRoot1);
+            while (!qtree.empty()) {
+                // 如果子树不是空的
+                int size = qtree.size();
+                for (int i = 0; i < size; i++) {
+                    TreeNode* tem = qtree.front();
+                    qtree.pop();
+                    if (tem->left != nullptr)
+                        qtree.emplace(tem->left);
+                    if (tem->right != nullptr)
+                        qtree.emplace(tem->right);
+
+                    // 针对当前节点 进行匹配
+                    // TODO
+                    ans = machTree(tem, pRoot2);
+                    if (ans == true) {
+                        return ans;
+                    }
+                }
+            }
+            return ans;
+        }
+        bool machTree(TreeNode* p1, TreeNode* p2) {
+            // 递归判断两个子树是不是相同的
+            if (p1 != nullptr && p2 != nullptr) {
+                if (p1->val == p2->val)
+                    return machTree(p1->left, p2->left) && machTree(p1->right, p2->right);
+                else
+                    return false;
+            } else if (p2 == nullptr) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    };
+
+    ```
 ---
 
 - 解决git上传失败

@@ -7,4 +7,4 @@
 
 # [LeetCode 热题 HOT 100](https://github.com/YuzheZhou2000/leetcode_code/tree/zyz_code/hot-100)
 
-# [LeetCode 剑指offer](https://github.com/YuzheZhou2000/leetcode_code/tree/main/%E5%89%91%E6%8C%87offer)
+# [LeetCode 剑指offer](https://github.com/YuzheZhou2000/leetcode_code/tree/main/face2offer/offerOnbook)
