@@ -16,48 +16,47 @@ public:
         }
         return myjudgeBST(sequence, 0, sequence.size() - 1);
     }
-    bool myjudgeBST(vector<int> sequence, int star, int end)
+    bool myjudgeBST(vector<int> seq, int star, int end)
     {
-        if (star + 1 >= end)
+        int i = star;
+        for (; i < end; i++)
         {
-            return true;
-        }
-        // 寻找左右子树
-        int index_1 = -3, index_2 = -3;
-        for (int i = star; i <= end; i++)
-        {
-            if (sequence[i] > sequence[end])
+            if (seq[i] > seq[end])
             {
-                index_1 = i;
                 break;
             }
         }
-        // 后面的应该都是右子树了
-        for (int i = end; i > -star; i--)
+        // 此时i位置为大于end的位置
+        int j = i;
+        for (; j < end; j++)
         {
-            if (sequence[i] < sequence[end])
+            if (seq[j] < seq[end])
             {
-                index_2 = i;
-                break;
+                return false;
             }
         }
-        if (index_2 + 1 == index_1)
+        // 讲道理此时j应该已经走到了end的位置
+
+        // 下面递归开始判断左右子树是不是后序遍历
+
+        bool left = true, right = true;
+        if (i > star)
         {
-            return true && myjudgeBST(sequence, star, index_2) && myjudgeBST(sequence, index_1, end - 1);
+            left = myjudgeBST(seq, star, i - 1);
         }
-        else
+        if (i < end)
         {
-            return false;
+            right = myjudgeBST(seq, i, end - 1);
         }
+        return (left && right);
     }
 };
 int main()
 {
-    vector<int> te1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    vector<int> test = te1.assign(te1.begin() + 1, te1.end());
-    for (auto &i : test)
-    {
-        cout << ' ' << i;
-    }
+    vector<int> test = {2};
+    Solution s;
+    bool ans = s.VerifySquenceOfBST(test);
+    // bool ans = false;
+    cout << "ans: " << ans;
     return 0;
 }

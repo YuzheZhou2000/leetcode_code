@@ -922,7 +922,49 @@
     };
     ```
 
+## 面试题 33：二叉搜索树的后序遍历
+> 本题目要求判断给定的序列是不是二叉搜索树的后序遍历数组
+- 首先需要知道什么是**后序遍历**，也就是二叉树根据**左子树->右子树->根节点** 的顺序进行遍历，那么根据二叉搜索树序列的定义，我们可以知道如果满足，应该是(左)(右)(根),以此为依据进行递归判断即可。
+    ```cpp
+    class Solution {
+    public:
+        bool VerifySquenceOfBST(vector<int> sequence) {
+            // 能想到的结果就是判断左右两侧是不是都是
+            // 因为根节点肯定是在最后一个位置上的
+            if (sequence.size() == 0) {
+                return false;
+            }
+            return myjudgeBST(sequence, 0, sequence.size() - 1);
+        }
+        bool myjudgeBST(vector<int> seq, int star, int end) {
+            int i = star;
+            for (; i < end; i++) {
+                if (seq[i] > seq[end]) {
+                    break;
+                }
+            }
+            // 此时i位置为大于end的位置
+            int j = i;
+            for (; j < end; j++) {
+                if (seq[j] < seq[end]) {
+                    return false;
+                }
+            }
+            // 讲道理此时j应该已经走到了end的位置
 
+            // 下面递归开始判断左右子树是不是后序遍历
+
+            bool left = true, right = true;
+            if (i > star) {
+                left = myjudgeBST(seq, star, i - 1);
+            }
+            if (i < end) {
+                right = myjudgeBST(seq, i, end - 1);
+            }
+            return (left && right);
+        }
+    };
+    ```
 
 
 
