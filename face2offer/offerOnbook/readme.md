@@ -877,8 +877,59 @@
     ```
 - 学到了一种很 ***骚*** 的操作，就是使用一个栈结构，但是每次压入最小值和真实值两个元素，其实就是两个栈合二为一。没有什么创新点，只是想法值得借鉴学习。算是打开新思路吧。
 
+## 面试题 32：从上往下打印二叉树
+> 从上到下打印二叉树，就是一种层序遍历的过程，二叉树的层序遍历，使用**队列**数据结构完成。
+- 使用队列，完成每一层的遍历
+    ```cpp
+    /*
+    struct TreeNode {
+        int val;
+        struct TreeNode *left;
+        struct TreeNode *right;
+        TreeNode(int x) :
+                val(x), left(NULL), right(NULL) {
+        }
+    };*/
+    class Solution {
+    public:
+        vector<int> PrintFromTopToBottom(TreeNode* root) {
+            // 从上到下打印二叉树 其实就是层次遍历
+            queue<TreeNode*> que;
+            vector<int> ans;
+
+            if (root == nullptr) {
+                return ans;
+            }
+            que.emplace(root);
+
+            while (!que.empty()) {
+                /* code */
+                int size = que.size();
+                for (int i = 0; i < size; i++) {
+                    TreeNode* temp = que.front();
+                    if (temp->left != nullptr) {
+                        que.emplace(temp->left);
+                    }
+                    if (temp->right != nullptr) {
+                        que.emplace(temp->right);
+                    }
+                    que.pop();
+                    ans.push_back(temp->val);
+                }
+            }
+            return ans;
+        }
+    };
+    ```
+
+
+
+
+
+
+
 ---
-- 解决git上传失败
+# 解决git上传失败
     ```python
     git config --global --unset http.proxy 
     git config --global --unset https.proxy
