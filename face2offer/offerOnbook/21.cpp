@@ -43,6 +43,7 @@ public:
                 {
                     que.emplace(temp->right);
                 }
+                que.pop();
                 ans.push_back(temp->val);
             }
         }
