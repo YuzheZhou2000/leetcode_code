@@ -1185,25 +1185,24 @@
 ---
 ## 面试题 39：超过一半的数组
 > 数组中出现次数超过一般的数字，可以首先进行一个**排序**，然后根据排序结果，中间的肯定是出现次数超过一般的元素。
-    ```cpp
-    class Solution {
-    public:
-        /**
-         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
-         *
-         *
-         * @param numbers int整型vector
-         * @return int整型
-         */
-        int MoreThanHalfNum_Solution(vector<int>& numbers) {
-            // write code here
-            int size = numbers.size();
-            sort(numbers.begin(), numbers.end());
-            cout <<(size>>1)<<endl;
-            return numbers[size >> 1];
-        }
-    };
-    ```
+```cpp
+class Solution {
+public:
+    /**
+     * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+     *
+     *
+     * @param numbers int整型vector
+     * @return int整型
+     */
+    int MoreThanHalfNum_Solution(vector<int>& numbers) {
+        // write code here
+        int size = numbers.size();
+        sort(numbers.begin(), numbers.end());
+        return numbers[size >> 1];
+    }
+};
+```
 # 解决git上传失败
     ```python
     git config --global --unset http.proxy 
