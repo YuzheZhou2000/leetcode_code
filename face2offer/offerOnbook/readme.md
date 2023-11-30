@@ -1203,6 +1203,27 @@ public:
     }
 };
 ```
+- 如果直接首先进行排序，然后返回中间元素，虽然可以解决本题目，但是不是效率最高的解决方案。这里我们使用一种神奇的叫做 **摩尔排序**的方法。依据是一定存在大于一半的元素，因此这个元素肯定可以和其他元素抵消。
+    ```cpp
+    int MoreThanHalfNum_Solution(vector<int>& numbers) {
+        // 排序算法的时间复杂度至少为排序的时间复杂度，因此可能时间长，尝试减低
+        // 使用一种叫做摩尔投票的方法
+        int count = 0, num = 0;
+        for (int i = 0; i < numbers.size(); i++) {
+            if (count == 0) {
+                num = numbers[i]; // 当前记录的
+                count = 1;
+            } else {
+                if (num == numbers[i]) {
+                    count++;
+                } else {
+                    count--;
+                }
+            }
+        }
+        return num;
+    }
+    ```
 # 解决git上传失败
     ```python
     git config --global --unset http.proxy 
