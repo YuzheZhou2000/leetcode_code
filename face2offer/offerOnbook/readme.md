@@ -1036,7 +1036,52 @@
 
     };
     ```
+## 面试题 35： 复杂链表的复制
+> 这里题目给出了复杂链表的复制，要求必须是一个 **深拷贝** ，因此不可以再原数组的直接返回。
+- 综合链表的性质，每一个节点的地址都是随机的，使用的是 **指针** 将不同的链表串联再一起，因此这道题目的关键在于如何根据待复制的原始链表，将新链表的随机指针同时复制。
 
+    - 法一、使用一个hash记录<原始节点、复制节点>的映射关系，根据原始链表找到对应的下一个随机指针指向的节点后，根据`map`中存储的地址定位到新的链表中的节点，进而实现随机指针的串联。
+    ```cpp
+    class Solution {
+    public:
+        RandomListNode* Clone(RandomListNode* pHead) {
+            // 因为存在一个随机指针指向一个随机位置
+
+            // 使用哈西边记录前后两个链表的对应关系
+            unordered_map<RandomListNode*, RandomListNode*> myMap;
+            RandomListNode* PseudoHead = new RandomListNode(-1);
+            if (pHead == nullptr) {
+                return nullptr;
+            }
+            RandomListNode* sourcehead = pHead;
+            RandomListNode* copyNode = new RandomListNode(pHead->label);
+            PseudoHead->next = copyNode;
+            myMap.emplace(pHead, copyNode);
+            pHead = pHead->next;
+            while (pHead != nullptr) {
+                RandomListNode* tem = new RandomListNode(pHead->label);
+                copyNode->next = tem;
+                myMap.emplace(pHead, tem);
+                copyNode = copyNode->next;
+                pHead = pHead->next;
+            }
+            // 链接随机指针
+            RandomListNode* copyTem = PseudoHead->next;
+            while (sourcehead != nullptr) {
+                cout << "val: "<<sourcehead->label<<endl;
+                /* code */
+                if (sourcehead->random != nullptr) {
+                    copyTem->random = myMap[sourcehead->random];
+                }
+                sourcehead = sourcehead->next;
+                copyTem = copyTem->next;
+            }
+
+            return PseudoHead->next;
+        }
+    };
+    ```
+    - 法二、在剑指offer书中给出的另一种做法是将复杂的问题简单化。我们可以在原始链表的基础上继续在每一个节点后面添加一个新的节点。然后根据原始节点的指向，修改新的节点指向。最后将新节点**其实就是偶数位置上的节点**从整体中分离出来，得到的就是最后的复制的结果。TODO 这种思路没有实现，但是觉得可能比原来的难写一些，如果后面有机会再写吧。
 ---
 # 解决git上传失败
     ```python
