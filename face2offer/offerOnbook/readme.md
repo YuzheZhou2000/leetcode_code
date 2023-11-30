@@ -965,10 +965,77 @@
         }
     };
     ```
+## 面试题 34: 二叉树中和为某一值的路径
+> 再判断路径问题中，首先可以想到这是一个递归问题，需要遍历每一个节点，并保存root->叶子节点每一条路径上的和，根据这个和判断是不是目标所求
+- 因此我们第一反应想到的方法就是使用 **前序遍历** 的方法，并使用一个额外数组保存路径上的所有元素的值和和。但是没有考虑到删除一个元素，因为我们的参数中写的是一个`vector<int> vec`,而不是一个`vector<int>& vec`，这说明是一个 **浅拷贝** ,因此需要考虑不满足以后的弹出。
+    ```cpp
+    class Solution
+    {
+    public:
+        /**
+        * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+        *
+        *
+        * @param root TreeNode类
+        * @param target int整型
+        * @return int整型vector<vector<>>
+        */
+        vector<vector<int>> ans;
+        vector<vector<int>> FindPath(TreeNode *root, int target)
+        {
+            // write code here
+            vector<int> vec;
+            if (root == nullptr){
+                return ans;
+            }
+            MyFindPath(vec, 0, root, target);
 
+            return ans;
+        }
+        void MyFindPath(vector<int> vec, int sum, TreeNode *root, int targer)
+        {
+            sum += root->val;
+            
+            vec.push_back(root->val);
+            if (root->left == nullptr && root->right == nullptr)
+            {
+                // 到了叶子节点
+                if (sum == targer)
+                    ans.push_back(vec);
+                return;
+            }
+            if (root->left != nullptr)
+                MyFindPath(vec, sum, root->left, targer);
+            if (root->right != nullptr)
+                MyFindPath(vec, sum, root->right, targer);
+            
+        }
+        
+        
+        // 考虑进一步优化，直接使用值传递的方法会导致内存很大，因此改写递归函数
+        void MyFindPath_v2(vector<int>& vec, int sum, TreeNode *root, int targer)
+        {
+            if (root == nullptr)
+                return;
+            sum += root->val;
+            
+            vec.push_back(root->val);
+            if (root->left == nullptr && root->right == nullptr)
+            {
+                // 到了叶子节点
+                if (sum == targer)
+                    ans.push_back(vec);            
+            }
+            if (root->left != nullptr)
+                MyFindPath(vec, sum, root->left, targer);
+            if (root->right != nullptr)
+                MyFindPath(vec, sum, root->right, targer);
+            // vec pop
+            vec.pop_back();
+        }
 
-
-
+    };
+    ```
 
 ---
 # 解决git上传失败

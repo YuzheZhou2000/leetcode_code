@@ -28,8 +28,30 @@ public:
     vector<vector<int>> FindPath(TreeNode *root, int target)
     {
         // write code here
+        vector<int> vec;
+        MyFindPath(vec, 0, root, target);
 
         return ans;
+    }
+    void MyFindPath(vector<int> vec, int sum, TreeNode *root, int targer)
+    {
+        sum += root->val;
+
+        // 本剪枝方法不可取 因为可能会存在负数的情况
+        // if (sum > targer)
+        //     return;
+        vec.push_back(root->val);
+        if (root->left == nullptr && root->right == nullptr)
+        {
+            // 到了叶子节点
+            if (sum == targer)
+                ans.push_back(vec);
+            return;
+        }
+        if (root->left != nullptr)
+            MyFindPath(vec, sum, root->left, targer);
+        if (root->right != nullptr)
+            MyFindPath(vec, sum, root->right, targer);
     }
 };
 int main()
