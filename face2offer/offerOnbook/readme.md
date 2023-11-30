@@ -1122,6 +1122,65 @@
         }
     };
     ```
+## 面试题 38: 字符串的排列 
+> [牛客网链接](https://www.nowcoder.com/practice/fe6b651b66ae47d7acce78ffdd9a96c7?tpId=13&tqId=23291&ru=%2Fpractice%2Ffe6b651b66ae47d7acce78ffdd9a96c7&qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking&sourceUrl=) 这道题目为字符串的所有可能的排列，其实就是一个给定字符串的全排列问题
+- 我们想到的就是使用递归的方法，从左到右对字符串尝试左右的可能性。其中使用到了一个关键的函数`swap`用于交换字符串中指定索引的两个字符。
+    - 其中的一个坑在于给定的字符串可能会存在相同的两个字符，这时候可以从两个不同的角度来解决这个问题。  
+    1. TODO:在交换的时候引入`visit`数组用于标识是不是访问过这个字母(题干中给出了只存在大写和小写字母)  
+    2. 使用`set`首先保存所有结果，借助于容器实现相同结果的过滤。
+    ```cpp
+    class Solution {
+    public:
+        /**
+        * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+        *
+        *
+        * @param str string字符串
+        * @return string字符串vector
+        */
+        unordered_set<string> ans;
+
+        vector<string> Permutation(string str) {
+            /**
+            * 这个题目中存在的一个大坑就是可能会有重复的元素
+            * 这时候如果将两个元素看成了一个, 会导致重复
+            */
+            // write code here
+            vector<string> anss;
+            int size = str.size();
+            if (size == 0) {
+                return anss;
+            }
+            // 使用递归的方法解决
+
+            myPer(str, 0, size - 1);
+
+            for (auto& i : ans) {
+                anss.push_back(i);
+            }
+            sort(anss.begin(), anss.end());
+            return anss;
+        }
+        void myPer(string& str, int star, int end) {
+            if (star == end) {
+                // cout << str << endl;
+                int j;
+                // cin >> j;
+                ans.emplace(str);
+                return;
+            }
+            for (int i = star; i <= end; i++) {
+                // 当前元素和每一个元素进行交换，可以得到当前位置的所有组合情况
+                swap(str[star], str[i]);
+                myPer(str, star + 1, end);
+                // 然后换回来
+                swap(str[star], str[i]);
+            }
+            return;
+        }
+    };
+    ``` 
+
 
 ---
 # 解决git上传失败
