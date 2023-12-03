@@ -1267,6 +1267,96 @@ public:
         }
     };
     ```
+## 面试题 42： 连续子数组的最大和
+> 本题目为求给定一个子数组的最大和，因为数组中有负数的存在，因此起点可能不一样
+- 因此我们使用动态规划的方法，保存 一个最大值
+    ```cpp
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         *
+         * @param array int整型vector
+         * @return int整型
+         */
+        int FindGreatestSumOfSubArray(vector<int>& array) {
+            // write code here
+            int ans = INT_MIN;
+            int size = array.size();
+            vector<int> dp(size);
+            if (array.size() < 1) {
+                return ans;
+            }
+            dp[0] = array[0];
+            ans = max(dp[0], ans);
+            for (int i = 1; i < size; i++) {
+                dp[i] = max(dp[i - 1] + array[i], array[i]);
+                ans = max(dp[i], ans);
+            }
+            return ans;
+        }
+    };
+    ```
+- 然而在上述方法中，我们使用了额外的`dp`数组来维护每一个index下的最大值，题目中给出了额外的要求说是需要使用空间复杂度为$O(1)$，也就是说不允许使用额外的空间。这时候考虑到的优化策略就是将`dp`数组优化掉。这时候我们采用的策略是直接在原来的数组空间上进行修改。
+    ```cpp
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         *
+         * @param array int整型vector
+         * @return int整型
+         */
+        int FindGreatestSumOfSubArray(vector<int> &array)
+        {
+            // write code here
+            int ans = INT_MIN;
+            int size = array.size();
+            if (array.size() < 1)
+            {
+                return ans;
+            }
+            // dp[0] = array[0];
+            ans = max(array[0], ans);
+            for (int i = 1; i < size; i++)
+            {
+                array[i] = max(array[i - 1] + array[i], array[i]);
+                ans = max(array[i], ans);
+            }
+            return ans;
+        }
+    };
+    ```
+- 第三种策略就是引入一个新的int类型的变量，使用两个int来保存中介结果。
+    ```cpp
+        int FindGreatestSumOfSubArray(vector<int>& array) {
+            // write code here
+            int ans = INT_MIN, maxNum = INT_MIN;
+            int size = array.size();
+            if (array.size() < 1) {
+                return ans;
+            }
+            // dp[0] = array[0];
+            // ans = max(array[0], ans);
+            maxNum = array[0];
+            ans = max(maxNum, ans);
+            for (int i = 1; i < size; i++) {
+                if (maxNum + array[i] > array[i]) {
+                    maxNum = maxNum + array[i];
+                } else {
+                    maxNum = array[i];
+                }
+                ans = max(maxNum, ans);
+
+            }
+            return ans;
+        }
+    ```
+ 
+
+ ---
 # 解决git上传失败
     ```python
     git config --global --unset http.proxy 
