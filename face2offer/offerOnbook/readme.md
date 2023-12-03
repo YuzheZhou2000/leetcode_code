@@ -1348,7 +1348,7 @@ public:
                 } else {
                     maxNum = array[i];
                 }
-                ans = max(maxNum, ans);
+                ans = max(maxNum, ans); 
 
             }
             return ans;

@@ -40,11 +40,20 @@ public:
             return ans;
         }
         // dp[0] = array[0];
-        ans = max(array[0], ans);
+        // ans = max(array[0], ans);
+        maxNum = array[0];
+        ans = max(maxNum, ans);
         for (int i = 1; i < size; i++)
         {
-            array[i] = max(array[i - 1] + array[i], array[i]);
-            ans = max(array[i], ans);
+            if (maxNum + array[i] > maxNum)
+            {
+                maxNum = maxNum + array[i];
+            }
+            else
+            {
+                maxNum = array[i];
+            }
+            ans = max(maxNum, ans);
         }
         return ans;
     }
