@@ -1224,6 +1224,49 @@ public:
         return num;
     }
     ```
+## 面试题 40： 最小的k个数
+> 本题目想要求的最小的k个数字，我们拿到题目的第一反应就是首先堆数组进行排序，然后选择其中最小的k个数字。
+- 然而如果直接使用排序算法进行，时间复杂度最小的情况下也是一个$O(nlongn)$的情况，不满足题目中要求的时间复杂度为$O(nlogk)$的要求。那么什么时候时间复杂度为$O(nlogk)$呢，我们可以知道优先队列的`pop()`和`emplace()`的时间复杂度都是$logk$，因此我们可以构建一个只有k个节点的优先队列，通过遍历给定数组中的每一个元素，来得到最后的结果数组。在完成后直接将优先队列的元素转移到vector中即可。
+    ```cpp
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         *
+         * @param input int整型vector
+         * @param k int整型
+         * @return int整型vector
+         */
+        vector<int> GetLeastNumbers_Solution(vector<int>& input, int k) {
+            // write code here
+            // 要求空复杂度为O(n) 时间复杂度为O(nlogk)
+            // 因此考虑使用最大堆,堆顶保留最大的元素
+
+            vector<int> ans;
+            priority_queue<int> que;
+            for (auto& i : input) {
+                if (que.size() < k) {
+                    que.emplace(i);
+
+                } else {
+                    if (!que.empty()) {
+                        if (que.top() > i) {
+                            que.pop();
+                            que.emplace(i);
+                        }
+                    }
+                }
+            }
+            while (!que.empty()) {
+                ans.push_back(que.top());
+                que.pop();
+            }
+            sort(ans.begin(), ans.end());
+            return ans;
+        }
+    };
+    ```
 # 解决git上传失败
     ```python
     git config --global --unset http.proxy 

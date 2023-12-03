@@ -43,6 +43,7 @@
 
 ### 定义：
 - 最小堆：`priority_queue <type, vector<type>, greater<type> > name;`
+- 最大堆：`priority_queue <type, vector<type>, less<int>> name;`
 
 ### 其他：
 1. `unordered_map`使用的是STL中默认的哈希函数，而默认哈希函数只适用于基本数据类型（包括 string 类型），而不适用于自定义的结构体或者类。
