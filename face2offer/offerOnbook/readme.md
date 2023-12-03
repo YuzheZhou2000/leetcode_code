@@ -1354,7 +1354,42 @@ public:
             return ans;
         }
     ```
- 
+## 面试题 43： 整数中1的的出现次数
+> 整数中1出现的次数，作为一道经典的递归题目。可以通过递归的解决。
+- 具体来说，首先分离出最高位和其他位数，然后最高位置分为两种：1/其他；剩余的位数算一个。剩余的第三种考虑最高位置引导的其他。
+    ```cpp
+    class Solution {
+    public:
+        int NumberOf1Between1AndN_Solution(int n) {
+            if (n <= 0)
+                return 0;
+            if (n < 10)
+                return 1;
+
+            int high = n;
+            int pow = 1;
+            int ans;
+            while (high >= 10) {
+                // 注意这里的判断，当到了最后一位后，直接停止
+                // 这种设计可以保存最高位的数字
+                high /= 10;
+                pow *= 10;
+            }
+            // 此时高位数字可以理解为higt
+            // 接下来计算低位数字
+            int low = n - high * pow;
+            if (high == 1) {
+                // 如果最高位置是1 ，那么1的次数就是以后的所有字符+1....
+                ans = low + 1;
+            } else {
+                // 如果最高位置不是1 ， 那么1的次数就是pow
+                ans = pow;
+            }
+            return ans + NumberOf1Between1AndN_Solution(low) + high *
+                NumberOf1Between1AndN_Solution(pow - 1);
+        }
+    };
+    ``` 
 
  ---
 # 解决git上传失败
