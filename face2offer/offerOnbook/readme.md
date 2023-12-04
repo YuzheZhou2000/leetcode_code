@@ -1431,6 +1431,8 @@ public:
     }
 };
 ```
+- 除此之外，在本题目中，可以使用 **匿名函数** 实现对string数组的快速排序
+`sort(temp.begin(), temp.end(), [](const string& a, const string& b) {return a + b < b + a; });`
  ---
 # 解决git上传失败
     ```python
