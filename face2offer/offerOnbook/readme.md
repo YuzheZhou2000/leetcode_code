@@ -1530,7 +1530,28 @@ class Solution {
         }
     };
     ```
+- 补充：因为题目中给出了附加信息  **字符串中只包含了大小写字母** 因此我们可以使用一个256长度的`vector<int>(256)`来作为一个简易化的哈希表，进而节省空间复杂度。
+    ```cpp
+    int FirstNotRepeatingChar(string str) {
+        // write code here
+        int size = str.size();
+        // 且字符串只有字母组成
+        // 这里使用是一个recoder记录 因为string中的字符串是最多只有256种可能
+        // 这是根据c++中char的数据类型决定的
+        vector<int> recorder(256, 0);
+        for (int i = 0; i < size; i++) {
+            recorder[str[i]]++;
+        }
 
+        // 遍历maMap 找到第一个第二个元素是1的即可，
+        for (int i = 0; i < size; i++) {
+            if (recorder[str[i]] == 1) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    ```
 ## 
 ---
 
