@@ -1553,7 +1553,58 @@ class Solution {
     }
     ```
 ## 面试题 51: 数组中的逆序对
->  
+> [牛客网链接](https://www.nowcoder.com/practice/6aa9e04fc3794f68acf8778237ba065b?tpId=13&&tqId=11186&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)首先需要知道应该如何解决本题目，逆序对的含义说白了就是从数组中任意选出两个数字，其中位于前面的数字在数值上大于后面的数字
+- 在明确了含义以后，可以进行算法分析
+    - 首先想到的就是使用暴力所有的方法，对于每一个元素，都向后看一次，判断和他成对的逆序对有多少，这样的话时间复杂度为$O(n^2)$；
+    - 然而面试官可能会提醒我们还有更加省时的方法，要求时间复杂度为O(nlog(n))。这时候我们要想到的是 **归并排序** 的时间复杂度正好为O(nlog(n)), 那么能不能通过修改归并排序，来完成本题目。答案是可以的。
+    - 我们通过分组，判断每一个小组内部的排序数字，然后对每一个小组内部进行排序，然后因为每一个分组是一个排序数组，因此可以根据这个数组的有序性，进行统计两个子序列中存在的逆序数。
+    ```cpp
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         *
+         * @param index int整型
+         * @return int整型
+         */
+        int GetUglyNumber_Solution(int index) {
+            // write code here
+            if (index <= 0) {
+                return 0;
+            }
+            if (index == 1) {
+                return 1;
+            }
+            // 正式逻辑  计算2 3 5 的组合
+            // 开辟一个数组，记录0-index中的丑数
+            vector<int> ans(index + 1, 0);
+            ans[1] = 1;
+            // 开始的时候三个不同的因子都是从1开始加 这时候
+            int index_two = 1, index_three = 1, index_five = 1;
+    
+            for (int i = 2; i <= index; i++) {
+                // 需要明白的一点是因为index_2/3/5是++，因此其实就是可以看作是遍历前面的所有可能
+                // for循环中，每一次循环其实都是获得了一个最新的丑数
+                // 下面的判断是不是相等的逻辑 是为了防止重复
+                int minNum = min(min(ans[index_two] * 2, ans[index_three] * 3),
+                                ans[index_five] * 5);
+                if (minNum == ans[index_two] * 2) {
+                    index_two++;
+                }
+                if (minNum == ans[index_three] * 3) {
+                    index_three++;
+                }
+                if (minNum == ans[index_five] * 5) {
+                    index_five++;
+                }
+                ans[i] = minNum;
+            }
+    
+            return ans[index];
+        }
+    };
+    ```
 ---
 
 
