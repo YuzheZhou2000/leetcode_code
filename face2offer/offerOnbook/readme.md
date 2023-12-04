@@ -1488,7 +1488,52 @@ class Solution {
 ```
 
 
+## 面试题 50： 第一个只出现一次的字符
+> [牛客网链接](https://www.nowcoder.com/practice/1c82e8cf713b4bbeb2a5b31cf5b0417c?tpId=13&&tqId=11187&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)首先需明确本题目设定的输入 **第一个** 只出现一次的字符
+- 因此选择的策略是首先遍历一遍整个字符串，记录每一个字符出现的次数。然后第二次遍历的选择出第一个只出现一次的字符即可。
+    ```cpp
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         *
+         * @param str string字符串
+         * @return int整型
+         */
+        int FirstNotRepeatingChar(string str) {
+            // write code here
+            int size = str.size();
+            // 且字符串只有字母组成
+            unordered_map<char, int> myMap;
+            for (int i = 0; i < size; i++) {
+                char tem = str[i];
+                // 在map数据结构中的查找操作
+                auto iter = myMap.find(tem);
+                if (iter != myMap.end()) {
+                    // 找到了
+                    iter->second ++;
+                } else {
+                    myMap.emplace(tem, 1);
+                }
+            }
+
+            // 遍历maMap 找到第一个第二个元素是1的即可，
+            for (int i = 0; i < size; i++) {
+                auto iter = myMap.find(str[i]);
+                if (iter->second == 1) {
+                    return i;
+                }
+            }
+            return -1;
+
+        }
+    };
+    ```
+
+## 
 ---
+
 
 # 解决git上传失败
     ```python
