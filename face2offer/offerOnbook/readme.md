@@ -1627,8 +1627,77 @@ class Solution {
         }
     };
     ```
+## 面试题 53 ：  数字在升序数组中出现的次数
+> 属于是对在二分查找上的拔高算法
+- [牛客网链接](https://www.nowcoder.com/practice/70610bf967994b22bb1c26f9ae901fa2?tpId=13&&tqId=11190&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)
+- 需要做的是判断两个边界值的存在，几点需要注意的地方
+    - 两个边界索引首先都写成-1， 如果找到了就对其进行重新赋值，那么可以知道如果最后还是-1 ，就说明没有找到
+    - 在判断中，普通二分查找在得到目标值相等后，直接返回， 但是在本题目中由于可能存在 **多个** 目标值的情况，所以需要通过添加更强的判断
+    - `while`中的判断写的是`>=`， 对应的没有找到以后`left` ans `right`指针的移动位置都是+1或者-1。
+    ```cpp
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         * 
+         * @param nums int整型vector 
+         * @param k int整型 
+         * @return int整型
+         */
+        int GetNumberOfK(vector<int>& nums, int k) {
+            // write code here
+            // 属于是二分查找的拓展算法 因为题目中给出来了nums是一个已经排好序的非降序数组
+            int star = -1, end = -1;
+            
+            // 使用二分查找分别定位k在nums数组中左右出现的下标
 
+            // 首先定位左边的下标
+            int left = 0, right = nums.size()-1;
 
+            while (left <= right){
+                int mid = left + (right - left)/2;
+                if (nums[mid] == k){
+                    // 尽管这时候我们找到了 但是在这个题目中我们需要找到的是最左边的
+                    if (mid == 0 || (nums[mid-1] != k && mid >0 )){
+                        star = mid;
+                        break;
+                    }else{
+                        right = mid-1;
+                    }
+                }
+                else if (nums[mid] > k){
+                    right = mid-1;
+                }else{
+                    left = mid +1;
+                }
+            }
+            // 继续定位右边
+            left = 0;
+            right = nums.size()-1;
+            while (left <= right){
+                int mid = left + (right - left)/2;
+                if (nums[mid] == k){
+                    if (mid == nums.size()-1 || (mid<nums.size()-1 && nums[mid+1] != k)){
+                        // 这时候算是找到了目标的有边界
+                        end = mid;
+                        break;
+                    }else{
+                        left = mid +1;
+                    }
+                }else if (nums[mid] >k){
+                    right = mid-1;
+                }else{
+                    left = mid +1;
+                }
+            }
+            if (star == -1){
+                return 0;
+            }
+            return end - star+1;
+        }
+    };
+    ```
 
 
 
