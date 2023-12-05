@@ -1888,6 +1888,37 @@ class Solution {
         return  ans;
     }
     ```
+## 面试题 57: 
+> 和为S的两个数字
+- 因为数组是一个排序数组 因此我们可以使用双指针的做法完成本题目
+    ```cpp
+    class Solution {
+    public:
+        vector<int> FindNumbersWithSum(vector<int> array, int sum) {
+            vector<int> ans;
+            if (array.size() <= 1) {
+                return ans;
+            }
+            int left = 0, right = array.size() - 1;
+
+            while (left < right) {
+                int tem = array[left] + array[right];
+                if (array[left] + array[right] == sum) {
+                    ans.push_back(array[left]);
+                    ans.push_back(array[right]);
+                    return ans;
+                }
+
+                else if (array[left] + array[right] > sum) {
+                    right--;
+                } else {
+                    left++;
+                }
+            }
+            return ans;
+        }
+    };
+    ```
 ---
 
 # 解决git上传失败
