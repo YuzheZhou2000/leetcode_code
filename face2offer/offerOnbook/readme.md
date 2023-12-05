@@ -1738,6 +1738,43 @@ class Solution {
         }
     };
     ```
+## 面试题79： 判断是不是平衡二叉树
+> 首先需要明确的就是平衡二叉树的定义：  
+ *平衡二叉树（Balanced Binary Tree），具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树*
+ - 基于以上性质，想到使用 **递归** 的方法，首先计算出左右两个子树分别的高度，然后做差判断当前子结构是不是平衡的，如果是，返回新的高度，如果不是，那么回传的时候直接回传一个标记(我们用-1来表示)
+    ```cpp
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         *
+         * @param pRoot TreeNode类
+         * @return bool布尔型
+         */
+        bool IsBalanced_Solution(TreeNode* pRoot) {
+            // write code here
+            int ans = TreeDepth(pRoot);
+            if (ans == -1) return false;
+
+            return true;
+
+
+        }
+        int TreeDepth(TreeNode* pRoot) {
+            if (pRoot == nullptr) {
+                return 0;
+            }
+
+            int leftDepth = TreeDepth(pRoot->left);
+            int rightDepth = TreeDepth(pRoot->right);
+            if (leftDepth == -1 || rightDepth == -1 || (abs(leftDepth - rightDepth) > 1)) {
+                return -1;
+            }
+            return 1 + max(leftDepth, rightDepth);
+        }
+    };
+    ```
 ---
 
 
