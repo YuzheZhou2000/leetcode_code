@@ -1605,6 +1605,32 @@ class Solution {
         }
     };
     ```
+## 面试题 52: 两个链表中的第一个公共子节点
+> 作为一道经典链表相交问题，我们需要知道的就是如何在走到链表尾部的时候，如何更新节点
+- 其中和这个题目很有关系的一句话叫做“**我走过你走过的路，我们终将会重逢**”
+- 因为如果两个链表没有交点，那么从循环中跳出的条件就是判断这两个节点是不是最后都遍历到了最后的 `nullptr`。  
+因此我们需要把最后的空节点也进行一次遍历.据此写出的判断条件就成了` A = (A != nullptr) ? A->next : pHead2;`
+    ```cpp
+    class Solution {
+    public:
+        ListNode* FindFirstCommonNode( ListNode* pHead1, ListNode* pHead2) {
+            ListNode* A = pHead1;
+            ListNode* B = pHead2;
+
+            while (A != B) {
+                // 两个节点的值不一样
+                A = (A != nullptr) ? A->next : pHead2;
+                B = (B != nullptr) ? B->next : pHead1;
+            }
+            return A;
+        }
+    };
+    ```
+
+
+
+
+
 ---
 
 
