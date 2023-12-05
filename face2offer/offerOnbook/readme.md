@@ -1607,6 +1607,7 @@ class Solution {
     ```
 ## 面试题 52: 两个链表中的第一个公共子节点
 > 作为一道经典链表相交问题，我们需要知道的就是如何在走到链表尾部的时候，如何更新节点
+- [牛客链接](https://www.nowcoder.com/practice/6ab1d9a29e88450685099d45c9e31e46?tpId=13&&tqId=11189&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking) [力扣链接](https://leetcode.cn/problems/intersection-of-two-linked-lists-lcci/description/)
 - 其中和这个题目很有关系的一句话叫做“**我走过你走过的路，我们终将会重逢**”
 - 因为如果两个链表没有交点，那么从循环中跳出的条件就是判断这两个节点是不是最后都遍历到了最后的 `nullptr`。  
 因此我们需要把最后的空节点也进行一次遍历.据此写出的判断条件就成了` A = (A != nullptr) ? A->next : pHead2;`
