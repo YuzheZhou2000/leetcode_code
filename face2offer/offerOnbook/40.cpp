@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 /**
  * 求所有和为Sum的连续的子序列
+ * 双指针解法
  */
 using namespace std;
 class Solution

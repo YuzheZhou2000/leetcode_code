@@ -1816,8 +1816,79 @@ class Solution {
         }
     };
     ```
----
 
+## 面试题 74：和为S的连续整数序列
+> 因为给出的是连续的整数序列，因此我们首先想到的直接暴力开始搜索，但是这样会导致时间复杂度过高。
+- **双层循环**
+    ```cpp
+    vector<vector<int>> FindContinuousSequence_v0(int sum)
+    {
+
+        // write code here
+        // 首先确定遍历的边界值，因为sum/2+1，因为除了这个以外不可能存在超过两个的序列结构
+
+        int bound = sum / 2 + 1;
+        vector<vector<int>> res;
+        if (sum <= 2)
+        {
+            return res;
+        }
+        // 两个数字的之前连续数列的求和
+        vector<int> ans;
+        ans.clear();
+        for (int i = 1; i <= bound; i++)
+        {
+            ans.clear();
+            int temp = 0;
+            for (int j = i; j <= bound; j++)
+            {
+                ans.push_back(j);
+                temp += j;
+                if (temp == sum)
+                {
+                    res.push_back(ans);
+                    break;
+                }
+                else if (temp > sum)
+                {
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+        return res;
+    }
+    ```
+- 因此我们采取的新的方法是基于两个指针，通过连续序列的求和进行。
+    ```cpp
+    vector<vector<int>> FindContinuousSequence(int sum) {
+        // 使用双指针进行优化
+        int maxNum = sum / 2 + 1;
+        int left = 1, right = 2;
+        vector<vector<int>> ans;
+        vector<int> vec;
+        while (left < right) {
+            int tempSum = (right + left) * (right - left + 1) / 2;
+            if (tempSum == sum) {
+                vec.clear();
+                for (int i = left; i <= right; i++) {
+                    vec.push_back(i);
+                }
+                ans.push_back(vec);
+                left++;
+            } else if (tempSum > sum) {
+                left++;
+            } else {
+                right++;
+            }
+        }
+        return  ans;
+    }
+    ```
+---
 
 # 解决git上传失败
     ```python
