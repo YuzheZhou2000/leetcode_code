@@ -1782,9 +1782,40 @@ class Solution {
 - 接下来，我们得到了这两个元素的异或值，进行 **分组**，分组的依据是这个结果中，第一次出现1的位置，理论依据在于：**对于两个不一样的数字进行异或，肯定会有某个位置出现 1， 异或操作本身的性质告诉我们，这个1表示有一个数字在这个位置是1，而另一个不是。
 - 根据这个分组，就实现了分开两个数字
 
-```cpp
-
-```
+    ```cpp
+    class Solution {
+    public:
+        void FindNumsAppearOnce(vector<int> data) {//,int* num1,int *num2) {
+            
+            if (data.size()<=1){
+                return;
+            }
+            int tem = 0;
+            for (auto & i : data){
+                // 定位两个只出现一次的两个数字的异或结果
+                tem ^=i;
+            }
+            // 拿到这个数组中1出现的一个位置。
+            int i = 1;
+            while(! (tem & i)){
+                i = i<<1;
+            }
+            cout <<"i: " <<i<<endl;
+            // 这时候可以根据i进行分组
+            int ans1 = 0, ans2=0;
+            for (auto & num :data){
+                if (num & i){
+                    // 第一组
+                    ans1 ^= num;
+                }else{
+                    // 第二组
+                    ans2 ^= num;
+                }
+            }
+            cout <<"res1: "<<ans1 <<" res2: "<<ans2<<endl; 
+        }
+    };
+    ```
 ---
 
 
