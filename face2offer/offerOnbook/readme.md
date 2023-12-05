@@ -1699,8 +1699,45 @@ class Solution {
     };
     ```
 
-
-
+## 面试题55：二叉树的深度
+> 题目要求判断二叉树的深度，因此可以通过二叉树的层序遍历来实现
+- 本题目属于是简单的题目，每一次层次遍历将结果+1即可
+    ```cpp
+    class Solution {
+    public:
+        int TreeDepth(TreeNode* pRoot) {
+            //直接一波层序遍历
+            int ans = 0;
+            if (pRoot == nullptr) {
+                return ans;
+            }
+            queue<TreeNode*> que;
+            que.emplace(pRoot);
+            while (!que.empty()) {
+                ans ++;
+                int size = que.size();
+                for (int i = 0; i < size; i++ ) {
+                    TreeNode* temp = que.front();
+                    que.pop();
+                    if (temp->left != nullptr) que.emplace(temp->left);
+                    if (temp ->right != nullptr) que.emplace(temp->right);
+                }
+            }
+            return ans;
+        }
+    };
+    ```
+- 如果使用 **递归** 的方法，只需要知道当前的层数等于 max(左子树层数，右子树层数) +1
+    ```cpp
+    class Solution {
+    public:
+        int TreeDepth(TreeNode* pRoot) {
+            if (pRoot == nullptr)
+                return 0;
+            return 1 + max(TreeDepth(pRoot->left), TreeDepth(pRoot->right));
+        }
+    };
+    ```
 ---
 
 
