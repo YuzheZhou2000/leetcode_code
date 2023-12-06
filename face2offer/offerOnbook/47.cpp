@@ -24,6 +24,7 @@ public:
         return num1;
     }
 };
+
 int main()
 {
     Solution s;

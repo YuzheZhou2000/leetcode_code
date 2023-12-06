@@ -2112,7 +2112,32 @@ class Solution {
         }
     };
     ```
+## 面试题65：不使用四则运算计算两数之和
+> 如果不使用四则运算，那么我们需要使用 **位运算** 来解决本问题
+- 在本题目中需要掌握的知识点：   
 
+    1. 两个数做 异或 `^` 相当于求两个数字的不考虑进位的结果
+    2. 两个数做 与 `&` 然后向左移动一个位置，相当于求两个数相加的进位
+    ```cpp
+    class Solution {
+    public:
+        int Add(int num1, int num2) {
+            // 通过设计加法器来实现
+            /**
+             * num1: 表示两个数字的相加的和（不考虑进位
+             * num2: 表示两个数字的相加的进位
+             */
+            while (num2 != 0) {
+                /* code */
+                int sum = num1 ^ num2;
+                int carray = (num1 & num2) << 1;
+                num1 = sum;
+                num2 = carray;
+            }
+            return num1;
+        }
+    };
+    ```
 ---
 # 解决git上传失败
     ```python
