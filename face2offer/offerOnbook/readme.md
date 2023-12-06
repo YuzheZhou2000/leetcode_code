@@ -1918,9 +1918,38 @@ class Solution {
             return ans;
         }
     };
+   
+    ```
+## 面试题 58 ： 左旋转字符串
+> 基于编程语言实现循环左移
+- 作为问题的简化版，要知道既然是 **循环左移** 那么肯定存在一个可以循环化简的可能性。
+- 可以使用 *取余* 操作进行化简本算法。
+- 通过分割原始 `string`， 并重新实现组合， 即可完成、
+    ```cpp
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         *
+         * @param str string字符串
+         * @param n int整型
+         * @return string字符串
+         */
+        string LeftRotateString(string str, int n) {
+            // write code here
+            int len = str.size();
+            if (len == 0) {
+                return str;
+            }
+            n %= len;
+            string tem = str.substr(0, n);
+            string tem2 = str.substr(n, len);
+            return tem2 + tem;
+        }
+    };
     ```
 ---
-
 # 解决git上传失败
     ```python
     git config --global --unset http.proxy 
