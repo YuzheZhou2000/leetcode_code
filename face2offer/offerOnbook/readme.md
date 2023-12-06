@@ -1949,6 +1949,39 @@ class Solution {
         }
     };
     ```
+## 面试题 73: 反转单词序列
+> 给定一个字符串 实现单词序列的反转
+- 在本题目中 实现 **反转单词** 序列，可以使用基本的模拟操作进行。因为两个单词之间是通过 `" "`进行分割的，因此可以根据这一特征将单词进行分割，然后重新排列即可。
+    ```cpp
+    class Solution {
+    public:
+        string ReverseSentence(string str) {
+            if (str.size() == 0) {
+                return str;
+            }
+            vector<string> tempVec;
+            string tem = "";
+            str += ' ';
+            for (int i = 0; i < str.size(); i++) {
+                if (str[i] == ' ') {
+                    if (tem.size() > 0)
+                        tempVec.push_back(tem);
+                    tem = "";
+                } else {
+                    tem.push_back(str[i]);
+                }
+            }
+            reverse(tempVec.begin(), tempVec.end());
+            string ans;
+            ans += tempVec[0];
+            for (int i = 1; i < tempVec.size(); i++) {
+                ans += ' ';
+                ans += tempVec[i];
+            }
+            return ans;
+        }
+    };
+    ```
 ---
 # 解决git上传失败
     ```python
