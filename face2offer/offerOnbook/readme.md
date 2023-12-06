@@ -2098,6 +2098,21 @@ class Solution {
         }
     };
     ```
+## 面试题64：求1+2+3+...+n
+> 因为题目中不可以使用循环 乘除法等基础运算 所以我们可以操作的只能是递归 这时候递归的条件可以考虑到使用逻辑判断，因为正好到了0就停止
+    ```cpp
+    class Solution
+    {
+    public:
+        int Sum_Solution(int n)
+        {
+            // 因为不可以使用别的  但是我们可以通过n的0/非0来实现
+            n && (n += Sum_Solution(n - 1));
+            return n;
+        }
+    };
+    ```
+
 ---
 # 解决git上传失败
     ```python
