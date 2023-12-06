@@ -29,9 +29,40 @@ public:
         return ans;
     }
 
-    int LastRemaining_Solution_v0(int n, int m)
+    int LastRemaining_Solution(int n, int m)
     {
-        return 0;
+        if (n <= 0 || m <= 0)
+        {
+            return -1;
+        }
+
+        vector<int> numbers(n, 0); // 模拟这个圈中的n个样本
+        int index = -1;
+        int step = 0;
+        int count = n; // 开始是n个人的
+        while (count > 0)
+        {
+            index++; // 因为上一个删除了，因此下一次指向了下一个元素
+            if (index >= n)
+            {
+                // 如果超出了n个人，那么这个环就需要从0重新开始
+                index = 0;
+            }
+            if (numbers[index] == -1)
+            {
+                // -1表示这个人已经被删除了
+                continue;
+            }
+            step++;
+            if (step == m)
+            {
+                // 找到了第m次
+                numbers[index] = -1;
+                step = 0;
+                count--;
+            }
+        }
+        return index;
     }
 };
 int main()
