@@ -2335,7 +2335,7 @@ class Solution {
     ``` 
 ## 面试题 20： 表示数值的字符串
 - [牛客链接](https://www.nowcoder.com/practice/e69148f8528c4039ad89bb2546fd4ff8?tpId=13&tqId=1375424&ru=%2Fpractice%2F45327ae22b7b413ea21df13ee7d6429c&qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking&sourceUrl=)
-- 表示数值的字符串  进行好判断即可。
+- 表示数值的字符串  进行好判断即可
 
     ```cpp
     class Solution {
@@ -2451,6 +2451,33 @@ class Solution {
             }
             return ans;
         }
+    };
+    ```
+## 面试题 75 字符流中的第一个不重复的字符
+- 可以通过一个map来记录出现的次数。
+    ```cpp
+    class Solution {
+    public:
+        // 使用一个map来记录序列
+
+        unordered_map<int, int> myMap;
+        vector<char> vec;
+
+
+        //Insert one char from stringstream
+        void Insert(char ch) {
+            myMap[ch]++;
+            vec.push_back(ch);
+
+        }
+        //return the first appearence once char in current stringstream
+        char FirstAppearingOnce() {
+            for (auto& ch : vec) {
+                if (myMap[ch] == 1) return ch;
+            }
+            return '#';
+        }
+
     };
     ```
 ---
