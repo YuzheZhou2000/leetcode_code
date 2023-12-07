@@ -2248,6 +2248,93 @@ class Solution {
         }
     };
     ```
+## 面试题 19 ：正则表达式的匹配
+> 题目中所求为正则表达式的匹配
+- 我们这里基于 **递归** 的方法求解
+    1. 首先明确两个特定的字符 `"."`可以被替换为任意字符；`"*"` 表示前面的这个字符可以被重复0-无数次  
+    基于上述表示的模板的特性，可以知道`"*"` 出现的时候，我们需要判断前面的哪一个字符，换句话来讲，`"*"` 出现的时候的情况一定是有两个字符在一起的。
+    2. 基于递归的条件求解，首先在递归外面，如果两个字符串都是空串, `if (str.size() == 0 && pattern.size() == 0)` 直接 `return true;`
+    3. 进入递归：对于递归而言，需要知道完成递归的判断条件：(1)如果最后的子串和子模板的长度都是0了，那么`return true;` (2)如果最后子串的长度不是0但是子模版的长度变成了0，那么`return false;`。(3) **递归逻辑**  下面具体就递归逻辑进行分析
+    
+        1. 考虑匹配模板此时到了对`_*`的处理，这时候为了防止下边越界。需要判断子串的长度是不是大于等于2。如果满足，继续判断第二个字符是不是`*` 如果是，那么开始考虑上述`_*`的处理逻辑
+
+            a. **匹配**：如果第一个字符和模板中的第一个字符相同，或者【模板中的第一个字符是`.`并且待匹配串的长度>=1】 此时存在三种不同的可能性，只要有一个为`true`即可。因此可以使用retuen case1||case2||case3;   
+            case1: 待匹配串后退一个，模板后退两个，直接将`_*`消耗掉;  
+            case2: 待匹配串不动，模板后退两个，直接将`_*`消耗掉;   
+            case3: 待匹配子串后退一个,模板子串不动；【.*其实就是任意. 其中每一个.的表示的可以不一样】  
+            b. **不匹配**：待查询子串不动，模板后移两个字符
+        2. 模板串没有走到`_*`的情况，这时候就相对简单了  
+
+            a. 如果两个的第一个字符相同 同时后移一个位置  
+            b. 如果模板的第一个是`.` 且待匹配串长度大于0 同样两个都后移1位
+    ```cpp
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         *
+         * @param str string字符串
+         * @param pattern string字符串
+         * @return bool布尔型
+         */
+        bool match(string str, string pattern) {
+            // write code here
+            if (str.size() == 0 && pattern.size() == 0) {
+                return true;
+            }
+            bool ans = matchString(str, pattern);
+            return ans;
+        }
+
+        // 使用递归判断str和模板pattern之间的一一对应关系
+        bool matchString(string str, string patt) {
+            // cout << "str: " << str << "    patt: " << patt << endl;
+            //  当走到最后的时候，返回true
+            if (str.size() == 0 && patt.size() == 0) {
+                return true;
+            }
+            if (str.size() != 0 && patt.size() == 0) {
+                // 目标string已经完了， 但是模板中还存在剩余
+                return false;
+            }
+
+            // 考虑'*'表示它前面的字符可以出现任意次的情况
+            if (patt.size() >= 2) {
+
+                if (patt[1] == '*') {
+                    // 在当前匹配过程中，第二个字符是*
+                    if ((str[0] == patt[0]) || (patt[0] == '.' && str.size() >= 1)) {
+                        // 第一个字符可以匹配上
+                        // 消耗掉 "x*"的方式有两种，那么把这个x*看作是个废物不出现，要么是直接吞掉前字符
+                        // 如果不消耗 "X*" 那么就做多了一个
+                        // 字符串向后走一个   模板向后走两个
+                        return matchString(str.substr(1, str.size()), patt.substr(2, patt.size())) ||
+                            matchString(str, patt.substr(2, patt.size())) ||
+                            matchString(str.substr(1, str.size()), patt);
+                    } else {
+                        // 第一个不一样的情况下  只能使用* 将前面的字符消耗
+                        return matchString(str, patt.substr(2, patt.size()));
+                    }
+                }
+            }
+
+            // 不考虑第二个是* 那么这个时候
+            if (str[0] == patt[0]) {
+                return matchString(str.substr(1, str.size()), patt.substr(1, patt.size()));
+            }
+
+            if (patt[0] == '.' && str.size() >= 1) {
+
+                return matchString(str.substr(1, str.size()), patt.substr(1, patt.size()));
+            }
+            cout <<"zhouyuzhe"<<endl;
+            return false;
+        }
+    };
+    ``` 
+
+    
 ---
 # 解决git上传失败
     ```python
