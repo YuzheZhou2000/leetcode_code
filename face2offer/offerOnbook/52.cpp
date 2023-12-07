@@ -17,6 +17,7 @@ public:
     {
         // write code here
         int flag = 1; // 1: 整数部分 2： 小数部分 3： 指数部分
+        int ans = false;
         int len = str.size();
         if (len == 0)
         {
@@ -39,13 +40,13 @@ public:
                 break;
             }
         }
-        if (end <= star)
+        if (end < star)
         {
             return false;
         }
+
         // 得到一个去除空格后的字符串
         str = str.substr(star, end - star + 1);
-        cout << "str: " << str << endl;
 
         int len_whole = 0;
 
@@ -83,6 +84,40 @@ public:
                 }
                 else if (str[i] == 'e' || str[i] == 'E')
                 {
+                    if (len_whole == 0){
+                        return false;
+                    }
+                    flag = 3;
+                    ans = false;
+
+                    if ((i < str.size() - 1) && (str[i + 1] == '+' || str[i + 1] == '-'))
+                    {
+
+                        i++;
+                    }
+
+                    continue;
+                }
+                else if ((str[i] - '0' <= 9) && (str[i] - '0' >= 0))
+                {
+                    ans = true;
+                    len_whole ++;
+                    continue;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if (flag == 2)
+            {
+                // 小数部分
+                if (str[i] == 'e' || str[i] == 'E')
+                {
+                                        if (len_whole == 0){
+                        return false;
+                    }
+                    ans = false;
                     flag = 3;
                     if ((i < str.size() - 1) && (str[i + 1] == '+' || str[i + 1] == '-'))
                     {
@@ -94,31 +129,7 @@ public:
                 else if ((str[i] - '0' <= 9) && (str[i] - '0' >= 0))
                 {
                     len_whole++;
-                    continue;
-                }
-                else
-                {
-                    cout << "i: " << i << " char: " << str[i] << endl;
-                    cout << "test" << endl;
-
-                    return false;
-                }
-            }
-            else if (flag == 2)
-            {
-                // 小数部分
-                if (str[i] == 'e' || str[i] == 'E')
-                {
-                    flag = 3;
-                    if ((i < str.size() - 1) && (str[i + 1] == '+' || str[i + 1] == '-'))
-                    {
-                        i++;
-                    }
-
-                    continue;
-                }
-                else if ((str[i] - '0' <= 9) && (str[i] - '0' >= 0))
-                {
+                    ans = true;
                     continue;
                 }
                 else
@@ -131,6 +142,7 @@ public:
                 // 指数部分
                 if ((str[i] - '0' <= 9) && (str[i] - '0' >= 0))
                 {
+                    ans = true;
                     continue;
                 }
                 else
@@ -140,13 +152,13 @@ public:
             }
         }
 
-        return true;
+        return ans;
     }
 };
 int main()
 {
     Solution s;
-    bool flag = s.isNumeric("0");
+    bool flag = s.isNumeric("12e");
     cout << "ans: " << flag;
     return 0;
 }
