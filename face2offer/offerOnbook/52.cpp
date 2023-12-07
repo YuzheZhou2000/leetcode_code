@@ -114,7 +114,7 @@ public:
                 // 小数部分
                 if (str[i] == 'e' || str[i] == 'E')
                 {
-                                        if (len_whole == 0){
+                    if (len_whole == 0){
                         return false;
                     }
                     ans = false;
