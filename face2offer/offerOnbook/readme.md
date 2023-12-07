@@ -2209,6 +2209,45 @@ class Solution {
         }
     };
     ```
+## 面试题 66： 构建乘积数组
+> 首先需要知道题目是要求我们干什么的
+- 乘积数组的概念是index位置的索引代表了除了当前索引以外的其他元素的乘积之和
+- 最简单的办法是首先求出一个总的乘积之和，然后除以当前元素即可。但是题目中要求 **不能使用除法**
+- 那么可以想到的就是通过 **遍历** 解决，但是这样会导致时间复杂度的上升。
+- 因此我们最后采取的策略是 **两遍遍历**， 首先从左到右计算index 左边的元素的乘积，然后从右到左计算整个的res
+    ```cpp
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         *
+         * @param A int整型vector
+         * @return int整型vector
+         */
+        vector<int> multiply(vector<int>& A) {
+            // write code here
+            vector<int> ans(A.size());
+            if (A.size() <= 0) {
+                return ans;
+            }
+            // 首先从左向右算一遍啦
+            ans[0] = 1;
+            for (int i = 1; i < A.size(); i++) {
+                // 这时候ans[i]中保存了i左边值
+                ans[i] = ans[i - 1] * A[i - 1];
+            }
+            // 继续从右向左计算
+            int right = 1;
+            for (int i = ans.size() - 1; i >= 0; i--) {
+                ans[i] = ans[i] * right;
+                right = right * A[i];
+            }
+
+            return ans;
+        }
+    };
+    ```
 ---
 # 解决git上传失败
     ```python
