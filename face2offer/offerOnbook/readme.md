@@ -2517,6 +2517,45 @@ class Solution {
         }
     };
     ```
+## 面试题 76： 删除链表中的重复节点
+> 本题目为删除链表中的重复节点 在本题目中 可以直接使用一个map记录每一个val对应的出现的次数，首先经过一次遍历统计所有val出现的次数，然后第二次遍历的时候直接删除对应的节点即可。
+- 这里的空间复杂度和时间复杂度都是$O(n)$
+    ```cpp
+    class Solution {
+    public:
+        ListNode* deleteDuplication(ListNode* pHead) {
+            // 删除链表中的重复节点
+
+            // 使用一个map记录出现的次数
+            unordered_map<int, int> myMap;
+            if (pHead == nullptr){
+                return nullptr;
+            }
+
+            // 使用一个伪头结点
+            ListNode* head = new ListNode(-1);
+            head->next = pHead;
+            while (pHead) {
+                myMap[pHead->val]++;
+                pHead = pHead->next;
+            }
+            // 现在记录了节点中的值的出现的次数。
+            pHead = head;
+            while (pHead->next) {
+                if (myMap[pHead->next->val] > 1) {
+                    // 出现了超过一次，那么需要删除next节点
+                    ListNode* temp = pHead->next;
+                    pHead->next = pHead->next->next;
+                    delete (temp);
+                    continue;
+                } else {
+                    pHead = pHead->next;
+                }
+            }
+            return head->next;
+        }
+    };
+    ```
 ---
 # 解决git上传失败
     ```python
