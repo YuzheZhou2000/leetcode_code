@@ -2620,6 +2620,46 @@ class Solution {
         }
     };
     ```
+## 面试题 28: 对称的二叉树
+> 本题目类似于二叉树的镜像，其实就是在这的基础上增加了判断，对称二叉树就是判断二叉树的镜像是不是和原二叉树相同。
+- 递归解法，直接分别判断每一个节点的左子树和右子树相同。
+    ```cpp
+    class Solution {
+    public:
+        bool isSymmetrical(TreeNode* pRoot) {
+            // 递归的方法证明是一个对称的二叉树
+
+            if (pRoot == nullptr) {
+                return true;
+            }
+            bool ans = judgeinDigui(pRoot->left, pRoot->right);
+            return ans;
+
+        }
+        bool judgeinDigui(TreeNode* root1, TreeNode* root2) {
+            if (root1 == nullptr && root2 == nullptr) {
+                return true;
+            } else if ((root1 == nullptr && root2 != nullptr) || (root1 != nullptr &&
+                    root2 == nullptr)) {
+                return false;
+            } else {
+                if (root1->val != root2->val ) {
+                    return false;
+                } else {
+                    return judgeinDigui(root1->left, root2->right) && judgeinDigui(root1->right, root2->left);
+
+                }
+            }
+            
+        }
+    };
+    ```
+- 迭代解法  
+
+    step 1：首先判断链表是否为空，空链表直接就是对称。  
+    step 2：准备两个队列，分别作为从左往右层次遍历和从右往左层次遍历的辅助容器，初始第一个队列加入左节点，第二个队列加入右节点。  
+    step 3：循环中每次从队列分别取出一个节点，如果都为空，暂时可以说是对称的，进入下一轮检查；如果某一个为空或是两个节点值不同，那必定不对称。其他情况暂时对称，可以依次从左往右加入子节点到第一个队列，从右往左加入子节点到第二个队列。（这里包括空节点）  
+    step 4：遍历结束也没有检查到不匹配，说明就是对称的。
 ---
 # 解决git上传失败
     ```python
