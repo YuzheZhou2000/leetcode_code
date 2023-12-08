@@ -2660,6 +2660,55 @@ class Solution {
     step 2：准备两个队列，分别作为从左往右层次遍历和从右往左层次遍历的辅助容器，初始第一个队列加入左节点，第二个队列加入右节点。  
     step 3：循环中每次从队列分别取出一个节点，如果都为空，暂时可以说是对称的，进入下一轮检查；如果某一个为空或是两个节点值不同，那必定不对称。其他情况暂时对称，可以依次从左往右加入子节点到第一个队列，从右往左加入子节点到第二个队列。（这里包括空节点）  
     step 4：遍历结束也没有检查到不匹配，说明就是对称的。
+## 面试题 77 ： 按之字形顺序打印二叉树
+> 本题目相对简单，其实就是层序遍历二叉树 其中对层数进行记录，如果是偶数层，可以使用`reverse()`函数对vector进行逆序，即可得到一个之字形的结构。
+- 
+    ```cpp
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         *
+         * @param pRoot TreeNode类
+         * @return int整型vector<vector<>>
+         */
+        vector<vector<int>> Print(TreeNode* pRoot) {
+            // write code here
+            // 首先可以知道的是一个层序遍历问题
+            // 题目中给出了第一层从左向右，下一层从右向左，一直这样交替
+            // 因此可以知道第一层是一个正常的序列，其实每一层可以使用vector保存
+            // 如果需要逆序 直接resver即可
+            vector<vector<int>> ans;
+            if (pRoot == nullptr) {
+                return ans;
+            }
+            queue<TreeNode*> que;
+            que.emplace(pRoot);
+            int level = 1; // 偶数的时候逆序
+            while (!que.empty()) {
+                /* code */
+                vector<int> temVec;
+                TreeNode* tempNode = nullptr;
+                int size = que.size();
+                for (int i = 0; i < size; i++) {
+                    tempNode = que.front();
+                    que.pop();
+                    temVec.push_back(tempNode->val);
+                    if (tempNode->left != nullptr)
+                        que.emplace(tempNode->left);
+                    if (tempNode->right != nullptr)
+                        que.emplace(tempNode->right);
+                }
+                if ((level++ & 1) == 0) {
+                    reverse(temVec.begin(), temVec.end());
+                }
+                ans.push_back(temVec);
+            }
+            return ans;
+        }
+    };
+    ```
 ---
 # 解决git上传失败
     ```python
