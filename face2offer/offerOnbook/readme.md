@@ -2709,6 +2709,61 @@ class Solution {
         }
     };
     ```
+## 面试题： 将二叉树打印成多行
+- [牛客链接](https://www.nowcoder.com/practice/445c44d982d04483b04a54f298796288?tpId=13&&tqId=11213&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking)  
+其实就是上一道题目的简化版，不需要逆序即可
+    ```cpp
+    /**
+     * struct TreeNode {
+     *  int val;
+     *  struct TreeNode *left;
+     *  struct TreeNode *right;
+     *  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+     * };
+     */
+    class Solution {
+    public:
+        /**
+         * 代码中的类名、方法名、参数名已经指定，请勿修改，直接返回方法规定的值即可
+         *
+         *
+         * @param pRoot TreeNode类
+         * @return int整型vector<vector<>>
+         */
+        vector<vector<int> > Print(TreeNode* pRoot) {
+            // write code here            // write code here
+            // 首先可以知道的是一个层序遍历问题
+            // 题目中给出了第一层从左向右，下一层从右向左，一直这样交替
+            // 因此可以知道第一层是一个正常的序列，其实每一层可以使用vector保存
+            // 如果需要逆序 直接resver即可
+            vector<vector<int>> ans;
+            if (pRoot == nullptr) {
+                return ans;
+            }
+            queue<TreeNode*> que;
+            que.emplace(pRoot);
+            while (!que.empty()) {
+                /* code */
+                vector<int> temVec;
+                TreeNode* tempNode = nullptr;
+                int size = que.size();
+                for (int i = 0; i < size; i++) {
+                    tempNode = que.front();
+                    que.pop();
+                    temVec.push_back(tempNode->val);
+                    if (tempNode->left != nullptr)
+                        que.emplace(tempNode->left);
+                    if (tempNode->right != nullptr)
+                        que.emplace(tempNode->right);
+                }
+
+                ans.push_back(temVec);
+            }
+            return ans;
+
+        }
+    };
+    ```
 ---
 # 解决git上传失败
     ```python
