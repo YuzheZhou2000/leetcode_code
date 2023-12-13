@@ -1,6 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+/**
+ * 删除链表中的倒数第k个节点
+ * 这个题目在原来的基础上加入了删除操作
+ * 考察了是不是记得释放内存空间
+ * 在这个的基础上可以继续使用伪指针解决本问题
+ */
 struct ListNode
 {
     int val;
