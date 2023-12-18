@@ -11,3 +11,5 @@
 [5. 数组排序](https://leetcode.cn/problems/sort-an-array/)
 
 [6. 删除二叉搜索树中的节点](https://leetcode.cn/problems/delete-node-in-a-bst/description/)
+
+[7. 删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/description/)
