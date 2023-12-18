@@ -13,3 +13,5 @@
 [6. 删除二叉搜索树中的节点](https://leetcode.cn/problems/delete-node-in-a-bst/description/)
 
 [7. 删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/description/)
+
+[8. 分糖果](https://leetcode.cn/problems/candy/)
