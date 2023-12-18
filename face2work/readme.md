@@ -15,3 +15,5 @@
 [7. 删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/description/)
 
 [8. 分糖果](https://leetcode.cn/problems/candy/)
+
+[9. 从前序和中序中重建二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/)
