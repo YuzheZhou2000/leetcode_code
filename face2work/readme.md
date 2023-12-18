@@ -9,3 +9,5 @@
 [4. 搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/description/)
 
 [5. 数组排序](https://leetcode.cn/problems/sort-an-array/)
+
+[6. 删除二叉搜索树中的节点](https://leetcode.cn/problems/delete-node-in-a-bst/description/)
