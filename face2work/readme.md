@@ -7,3 +7,5 @@
 [3. 无重复的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/)
 
 [4. 搜索旋转排序数组](https://leetcode.cn/problems/search-in-rotated-sorted-array/description/)
+
+[5. 数组排序](https://leetcode.cn/problems/sort-an-array/)
