@@ -25,3 +25,5 @@
 [TODO  12. 最大为n的数字组合个数](https://leetcode.cn/problems/numbers-at-most-n-given-digit-set/description/)
 
 [13. 最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence/)
+
+[TODO 14. 超级洗衣机](https://leetcode.cn/problems/super-washing-machines/description/)
