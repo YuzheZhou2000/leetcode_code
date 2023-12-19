@@ -6,6 +6,7 @@ using namespace std;
  * 1. 使用map第一次遍历记录每一个元素的出现次数
  * 2. 针对每一个不同的元素的出现次数，放到vector中进行排序
  * 3. 根据排序结果生成新的string用于返回
+ * https://leetcode.cn/problems/sort-characters-by-frequency/description/
  */
 bool cmp(const pair<char, int> &a, const pair<char, int> &b)
 {
