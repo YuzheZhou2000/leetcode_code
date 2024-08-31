@@ -14,7 +14,6 @@ public:
        for(auto& str : strs){
         string key = str;
         sort(str.begin(), str.end());
-        cout <<"key: "<<key <<" str: "<<str<<endl;
         maptable[str].emplace_back(key);
        }
 
